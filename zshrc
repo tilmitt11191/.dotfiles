@@ -1,3 +1,4 @@
+
 if [ $HOST  = ubuntu128 ];then
 # use vim as the visual editor
 export VISUAL=vim
@@ -217,33 +218,26 @@ fi
 
 
 
-# Local config
+#########	Local config
 
 if [ $HOST = ubuntu128 ];then
 	[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 fi
 
-
-# set PATH
+####	PATH
 if [ $HOST  = ubuntu128 ];then
 	export PATH=$PATH:$HOME/.linuxbrew/bin
-fi
-
-if [ $HOST  = macos ];then
+elif [ $HOST  = macos ];then
 	export PATH=$PATH
 fi
 
-PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
-
-#set alias
+####	alias
 if [ $HOST  = ubuntu128 ];then
 alias ls='ls -G --color'
 alias ll='ls -lhG'
 alias mkdir='mkdir -p'
 alias vi='vim'
-fi
-
-if [ $HOST = macos ];then
+elif [ $HOST = macos ];then
 alias ls='ls -G --color'
 alias ll='ls -lhG'
 alias mkdir='mkdir -p'
@@ -251,12 +245,27 @@ alias vi='vim'
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 fi
 
-# set COLORS
+
+####	THEME
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="dieter"
+#ZSH_THEME="cloud"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="gentoo"
+#ZSH_THEME="avit"
+#ZSH_THEME="aussiegeek"
+#ZSH_THEME="candy"
+
+
+PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+
+####	COLORS
 if [ $HOST = ubuntu128 ];then
 	export LSCOLORS=DxDxcxdxbxegedabagacad
-fi
-
-if [ $HOST = ubuntu128 ];then
+elif [ $HOST = ubuntu128 ];then
 	export LSCOLORS=DxDxcxdxbxegedabagacad
 fi
 
