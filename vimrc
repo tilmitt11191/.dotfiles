@@ -5,13 +5,13 @@ set autoindent
 syntax enable
 if hostname() == "ubuntu128"
 	colorscheme twilight
-elseif hostname() == "macos"
-	:colorscheme default
+elseif hostname() == "macos.local"
+	"colorscheme default
 endif	
 	"colorscheme hybrid
 	":colorscheme molokai
-	let g:molokai_original = 1
-	let g:rehash256 = 1
+	"let g:molokai_original = 1
+	"let g:rehash256 = 1
 	"colorscheme twilight
 	"colorscheme molokai
 	"let g:molokai_original = 1
@@ -36,7 +36,7 @@ if hostname() == "ubuntu128"
 	set cursorline
 	hi clear CursorLine
 	"hi CursorLineNr term=bold cterm=none ctermbg=none ctermfg=none
-elseif hostname() == "macos"
+elseif hostname() == "macos.local"
 	hi LineNr ctermbg=none ctermfg=darkcyan
 	hi CursorLineNr ctermbg=4 ctermfg=0
 	set cursorline

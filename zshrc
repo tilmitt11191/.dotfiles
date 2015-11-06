@@ -38,7 +38,7 @@ autoload -U compinit
 compinit
 
 # load custom executable functions
-if [ $HOST = macos ];then
+if [ $HOST = macos.local ];then
 for function in ~/.zsh/functions/*; do
   source $function
 done
@@ -121,7 +121,7 @@ _load_settings() {
 _load_settings "$HOME/.zsh/configs"
 fi
 
-if [ $HOST = macos ];then
+if [ $HOST = macos.local ];then
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -227,7 +227,7 @@ fi
 ####	PATH
 if [ $HOST  = ubuntu128 ];then
 	export PATH=$PATH:$HOME/.linuxbrew/bin
-elif [ $HOST  = macos ];then
+elif [ $HOST  = macos.local ];then
 	export PATH=$PATH
 fi
 
@@ -237,7 +237,7 @@ alias ls='ls -G --color'
 alias ll='ls -lhG'
 alias mkdir='mkdir -p'
 alias vi='vim'
-elif [ $HOST = macos ];then
+elif [ $HOST = macos.local ];then
 alias ls='ls -G --color'
 alias ll='ls -lhG'
 alias mkdir='mkdir -p'
