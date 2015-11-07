@@ -1,127 +1,6 @@
 
-if [ $HOST  = ubuntu128 ];then
-# use vim as the visual editor
-export VISUAL=vim
-export EDITOR=$VISUAL
 
-# ensure dotfiles bin directory is loaded first
-export PATH="$HOME/.bin:/usr/local/sbin:$PATH"
-
-export PATH=$PATH:$HOME/.linuxbrew/bin
-
-# load rbenv if available
-if command -v rbenv >/dev/null; then
-  eval "$(rbenv init - --no-rehash)"
-fi
-
-# mkdir .git/safe in the root of repositories you trust
-export PATH=".git/safe/../../bin:$PATH"
-if [ $HOST = ubuntu128 ];then
-	export PATH=$PATH:$HOME/.linuxbrew/bin
-fi
-
-
-# modify the prompt to contain git branch name if applicable
-git_prompt_info() {
-  current_branch=$(git current-branch 2> /dev/null)
-  if [[ -n $current_branch ]]; then
-    echo " %{$fg_bold[green]%}$current_branch%{$reset_color%}"
-  fi
-}
-setopt promptsubst
-export PS1='${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%c%{$reset_color%}$(git_prompt_info) \$ '
-
-# load our own completion functions
-fpath=(~/.zsh/completion /usr/local/share/zsh/site-functions $fpath)
-# completion
-autoload -U compinit
-compinit
-
-# load custom executable functions
-if [ $HOST = macos.local ];then
-for function in ~/.zsh/functions/*; do
-  source $function
-done
-fi
-
-# makes color constants available
-autoload -U colors
-colors
-
-# enable colored output from ls, etc
-export CLICOLOR=1
-
-# history settings
-setopt hist_ignore_all_dups inc_append_history
-HISTFILE=~/.zhistory
-HISTSIZE=4096
-SAVEHIST=4096
-
-# awesome cd movements from zshkit
-setopt autocd autopushd pushdminus pushdsilent pushdtohome cdablevars
-DIRSTACKSIZE=5
-
-# Enable extended globbing
-setopt extendedglob
-
-# Allow [ or ] whereever you want
-unsetopt nomatch
-
-# vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-
-# handy keybindings
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^K" kill-line
-bindkey "^R" history-incremental-search-backward
-bindkey "^P" history-search-backward
-bindkey "^Y" accept-and-hold
-bindkey "^N" insert-last-word
-bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
-
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases
-
-# extra files in ~/.zsh/configs/pre , ~/.zsh/configs , and ~/.zsh/configs/post
-# these are loaded first, second, and third, respectively.
-_load_settings() {
-  _dir="$1"
-  if [ -d "$_dir" ]; then
-    if [ -d "$_dir/pre" ]; then
-      for config in "$_dir"/pre/**/*(N-.); do
-        . $config
-      done
-    fi
-
-    for config in "$_dir"/**/*(N-.); do
-      case "$config" in
-        "$_dir"/pre/*)
-          :
-          ;;
-        "$_dir"/post/*)
-          :
-          ;;
-        *)
-          if [ -f $config ]; then
-            . $config
-          fi
-          ;;
-      esac
-    done
-
-    if [ -d "$_dir/post" ]; then
-      for config in "$_dir"/post/**/*(N-.); do
-        . $config
-      done
-    fi
-  fi
-}
-_load_settings "$HOME/.zsh/configs"
-fi
-
-if [ $HOST = macos.local ];then
+if [ `hostname` = "macos.local" ];then
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -184,7 +63,7 @@ plugins=(git brew)
 # User configuration
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
-#export PATH=$PATH:$HOME/.linuxbrew/bin
+export PATH="$PATH:/Users/tilmitt/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -213,60 +92,43 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-fi
-
-
-
-#########	Local config
-
-if [ $HOST = ubuntu128 ];then
-	[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-fi
-
-####	PATH
-if [ $HOST  = ubuntu128 ];then
-	export PATH=$PATH:$HOME/.linuxbrew/bin
-elif [ $HOST  = macos.local ];then
-	export PATH=$PATH
-fi
-
-####	alias
-if [ $HOST  = ubuntu128 ];then
-alias ls='ls -G --color'
+alias ls~'ls -G'
 alias ll='ls -lhG'
+export LSCOLORS=exfxcxdxbxegedabagacad
+#export LSCOLORS=DxDxcxdxbxegedabagacad
+#export LSCOLORS="no=00:fi=00:di=01;36:ln=01;34"
 alias mkdir='mkdir -p'
 alias vi='vim'
-elif [ $HOST = macos.local ];then
-alias ls='ls -G --color'
-alias ll='ls -lhG'
-alias mkdir='mkdir -p'
-alias vi='vim'
+
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
+
+PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
+if [ `hostname` = "PC" ];then
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
 
-####	THEME
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="dieter"
-#ZSH_THEME="cloud"
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="gentoo"
-#ZSH_THEME="avit"
-#ZSH_THEME="aussiegeek"
-#ZSH_THEME="candy"
+alias ls='ls -FG --show-control-chars --color=auto'
+alias ll='ls -lhF'
+alias mkdir='mkdir -p'
+alias vi='vim'
 
+alias vim='/usr/bin/vim'
+alias git='git.exe'
+alias ping=' /usr/bin/ping.exe'
+alias hidemaru='/cygdrive/c/Program\ Files\ \(x86\)/Hidemaru/Hidemaru.exe'
 
-PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+export LANG=ja_JP.UTF-8
 
-####	COLORS
-if [ $HOST = ubuntu128 ];then
-	export LSCOLORS=DxDxcxdxbxegedabagacad
-elif [ $HOST = ubuntu128 ];then
-	export LSCOLORS=DxDxcxdxbxegedabagacad
+PS1="%1~ %(!.#.$) "
+
+# cd した先のディレクトリをディレクトリスタックに追加する
+# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
+# `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
+setopt auto_pushd
+# <Tab> でパス名の補完候補を表示したあと、
+# 続けて <Tab> を押すと候補からパス名を選択できるようになる
+# 候補を選ぶには <Tab> か Ctrl-N,B,F,P
+zstyle ':completion:*:default' menu select=1
 fi
-
-
