@@ -1,12 +1,17 @@
 
 set tabstop=2
 set autoindent
+set backspace=indent,eol,start
+set title
 
 syntax enable
 if hostname() == "ubuntu128"
 	colorscheme twilight
 elseif hostname() == "macos.local"
-	"colorscheme default
+	colorscheme default
+elseif hostname() == "PC"
+	"colorscheme base16-railscasts
+	colorscheme molokai
 endif	
 	"colorscheme hybrid
 	":colorscheme molokai
@@ -39,6 +44,11 @@ if hostname() == "ubuntu128"
 elseif hostname() == "macos.local"
 	hi LineNr ctermbg=none ctermfg=darkcyan
 	hi CursorLineNr ctermbg=4 ctermfg=0
+	set cursorline
+	hi clear CursorLine
+elseif hostname() == "PC"
+	hi LineNr ctermbg=0 ctermfg=blue
+	hi CursorLineNr ctermbg=4 ctermfg=8
 	set cursorline
 	hi clear CursorLine
 endif
