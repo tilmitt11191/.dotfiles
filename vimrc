@@ -10,8 +10,8 @@ if hostname() == "ubuntu128"
 elseif hostname() == "macos.local"
 	colorscheme default
 elseif hostname() == "PC"
-	"colorscheme base16-railscasts
-	colorscheme molokai
+	colorscheme base16-railscasts
+	"colorscheme molokai
 elseif hostname() == "mba-win"
 	colorscheme molokai
 endif	
