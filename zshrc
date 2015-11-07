@@ -106,9 +106,19 @@ PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
 if [ `hostname` = "PC" -o `hostname` = "mba-win" ];then
-
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+
+ZSH_THEME="dieter"
+#ZSH_THEME="xiong-chiamiov"
+
+# User configuration
+export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/Dropbox/pc/mba-win/home/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$PATH:/cygdrive/f/Dropbox/pc/`hostname`/home/bin
+
+source $ZSH/oh-my-zsh.sh
+
 
 alias ls='ls -FG --show-control-chars --color=auto'
 alias ll='ls -lhF'
@@ -118,10 +128,11 @@ alias vi='vim'
 alias vim='/usr/bin/vim'
 alias git='git.exe'
 alias hidemaru='/cygdrive/c/Program\ Files\ \(x86\)/Hidemaru/Hidemaru.exe'
-
+alias cygsetup='/cygdrive/f/bin/cygwin/setup-x86_64.exe'
 export LANG=ja_JP.UTF-8
 
-PS1="%1~ %(!.#.$) "
+#PS1="%1~ %(!.#.$) "
+PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 
 # cd した先のディレクトリをディレクトリスタックに追加する
 # ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
