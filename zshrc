@@ -106,6 +106,7 @@ PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
 if [ `hostname` = "PC" ];then
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
