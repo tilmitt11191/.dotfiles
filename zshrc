@@ -105,7 +105,7 @@ alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
-if [ `hostname` = "PC" ];then
+if [ `hostname` = "PC" -o `hostname` = "mba-win" ];then
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
