@@ -117,7 +117,6 @@ alias vi='vim'
 
 alias vim='/usr/bin/vim'
 alias git='git.exe'
-alias ping=' /usr/bin/ping.exe'
 alias hidemaru='/cygdrive/c/Program\ Files\ \(x86\)/Hidemaru/Hidemaru.exe'
 
 export LANG=ja_JP.UTF-8
