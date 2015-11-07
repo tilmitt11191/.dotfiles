@@ -12,6 +12,8 @@ elseif hostname() == "macos.local"
 elseif hostname() == "PC"
 	"colorscheme base16-railscasts
 	colorscheme molokai
+elseif hostname() == "mba-win"
+	colorscheme molokai
 endif	
 	"colorscheme hybrid
 	":colorscheme molokai
@@ -46,10 +48,10 @@ elseif hostname() == "macos.local"
 	hi CursorLineNr ctermbg=4 ctermfg=0
 	set cursorline
 	hi clear CursorLine
-elseif hostname() == "PC"
+elseif hostname() == "PC" || hostname() == "mba-win"
 	hi LineNr ctermbg=0 ctermfg=blue
 	hi CursorLineNr ctermbg=4 ctermfg=8
 	set cursorline
-	hi clear CursorLine
+	"hi clear CursorLine
 endif
 
