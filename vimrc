@@ -23,7 +23,6 @@ elseif hostname() == "macos"
 	"colorscheme elflord
 	"colorscheme koehler
 	colorscheme jellybeans
-echo "aaa"
 	highlight Normal ctermbg=none
 elseif hostname() == "PC"
 	colorscheme base16-railscasts
@@ -61,8 +60,10 @@ if hostname() == "ubuntu128"
 	"hi CursorLineNr term=bold cterm=none ctermbg=none ctermfg=none
 
 elseif hostname() == "macos"
+	set cursorline
 	hi LineNr ctermbg=none ctermfg=blue
-	hi CursorLineNr ctermbg=blue ctermfg=blue
+	hi CursorLine cterm=underline ctermfg=none ctermbg=none
+	"hi CursorLineNr ctermbg=none ctermfg=none
 	"hi clear CursorLine
 	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
