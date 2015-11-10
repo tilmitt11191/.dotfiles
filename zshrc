@@ -8,10 +8,10 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="dieter"
+#ZSH_THEME="dieter"
 #ZSH_THEME="cloud"
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="gentoo"
+ZSH_THEME="gentoo"
 #ZSH_THEME="avit"
 #ZSH_THEME="aussiegeek"
 #ZSH_THEME="candy"
@@ -94,9 +94,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls~'ls -G'
 alias ll='ls -lhG'
-export LSCOLORS=exfxcxdxbxegedabagacad
-#export LSCOLORS=DxDxcxdxbxegedabagacad
-#export LSCOLORS="no=00:fi=00:di=01;36:ln=01;34"
+##export LSCOLORS=exfxcxdxbxegedabagacad
+#export LSCOLORS=exfxcxdxbxegedabagacfx
+export LSCOLORS=excxcxdxcxegedabagacgx
+##export LSCOLORS=DxDxcxdxbxegedabagacad
+##export LSCOLORS="no=00:fi=00:di=01;36:ln=01;34"
 alias mkdir='mkdir -p'
 alias vi='vim'
 
