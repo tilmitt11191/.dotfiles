@@ -32,6 +32,9 @@ source $ZSH/oh-my-zsh.sh
 elif [ $HOST = "ubuntuMain" ];then
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+elif [ $HOST = "ubuntu128" ];then
+export ZSH=~/.oh-my-zsh
+source $ZSH/oh-my-zsh.sh
 fi
 
 #### COLOR
@@ -46,6 +49,11 @@ ZSH_THEME="cloud"
 export LSCOLORS=exfxcxdxbxegedabagacad
 #export LSCOLORS=excxcxdxcxegedabagacgx
 PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+elif [ $HOST = "ubuntu128" ];then
+ZSH_THEME="dieter"
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LSCOLORS=exfxcxdxbxegedabagacad
+PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
 #### PATH ####
@@ -58,6 +66,8 @@ elif [ $HOST = "PC" ];then
 elif [ $HOST = "mba-win" ];then
 	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/Dropbox/pc/mba-win/home/bin"
 	export PATH=$PATH:/cygdrive/f/Dropbox/pc/mba-win/home/bin
+elif [ $HOST = "ubuntu128" ];then
+	export PATH="$PATH:$ZSH:/home/ffffe/bin"
 fi
 
 #### alias #####
