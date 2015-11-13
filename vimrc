@@ -20,11 +20,10 @@ if hostname() == "ubuntu128"
 elseif hostname() == "macos.local"
 	"colorscheme twilight
 	"colorscheme molokai
-	"colorscheme base16-railscasts
+	colorscheme base16-railscasts
 	"colorscheme railscasts
 	"colorscheme elflord
-	"colorscheme koehler
-	colorscheme jellybeans
+"colorscheme jellybeans
 	highlight Normal ctermbg=none
 elseif hostname() == "PC"
 	colorscheme base16-railscasts
