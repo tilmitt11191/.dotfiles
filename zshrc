@@ -14,14 +14,9 @@ if [ $HOST = "macos.local" ];then
 # Example aliases
 alias ls~'ls -G'
 alias ll='ls -lhG'
-##export LSCOLORS=exfxcxdxbxegedabagacad
-#export LSCOLORS=exfxcxdxbxegedabagacfx
-export LSCOLORS=excxcxdxcxegedabagacgx
-##export LSCOLORS=DxDxcxdxbxegedabagacad
 alias mkdir='mkdir -p'
 alias vi='vim'
 alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
-PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 fi
 
 #### config
@@ -39,21 +34,31 @@ fi
 
 #### COLOR
 if [ $HOST = "macos.local" ];then
-ZSH_THEME="gentoo"
-export LSCOLORS=excxcxdxcxegedabagacgx
-PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	#ZSH_THEME="dieter"
+	#ZSH_THEME="cloud"
+	#ZSH_THEME="robbyrussell"
+	#ZSH_THEME="avit"
+	#ZSH_THEME="aussiegeek"
+	ZSH_THEME="candy"
+	#ZSH_THEME="Solish"
+	export LSCOLORS=excxcxdxcxegedabagacgx
+	#export LSCOLORS=excxcxdxcxexexaxaxaxgx
+	export LS_COLORS=$LSCOLORS
+	PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 elif [ $HOST = "ubuntuMain" ];then
-ZSH_THEME="cloud"
-#ZSH_THEME="dieter"
-#ZSH_THEME="gentoo"
-export LSCOLORS=exfxcxdxbxegedabagacad
-#export LSCOLORS=excxcxdxcxegedabagacgx
-PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	ZSH_THEME="cloud"
+	#ZSH_THEME="dieter"
+	#ZSH_THEME="gentoo"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	#export LSCOLORS=excxcxdxcxegedabagacgx
+	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 elif [ $HOST = "ubuntu128" ];then
-ZSH_THEME="dieter"
-export LSCOLORS=exfxcxdxbxegedabagacad
-export LSCOLORS=exfxcxdxbxegedabagacad
-PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	ZSH_THEME="dieter"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
+	PS1="%1~ %(!.#.$) "
 fi
 
 #### PATH ####
@@ -72,17 +77,15 @@ fi
 
 #### alias #####
 if [ $HOST = "macos.local" ];then
-:
+	alias ls~'ls -G'
+	alias ll='ls -lhG'
+	alias mkdir='mkdir -p'
+	alias vi='vim'
+	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi":
 elif [ $HOST = "ubuntuMain" ];then
 :
 elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
-# Path to your oh-my-zsh installation.
-#export ZSH=~/.oh-my-zsh
-#ZSH_THEME="dieter"
-#ZSH_THEME="xiong-chiamiov"
 #source $ZSH/oh-my-zsh.sh
-PS1="%1~ %(!.#.$) "
-#PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 
 alias ls='ls -FG --show-control-chars --color=auto'
 alias ll='ls -lhF'
