@@ -28,7 +28,7 @@ if [ $HOST = "macos.local" ];then
 	autoload colors
 	colors
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-	PROMPT='%{${fg[green]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
 elif [ $HOST = "ubuntuMain" ];then
 	ZSH_THEME="cloud"
 	#ZSH_THEME="dieter"
