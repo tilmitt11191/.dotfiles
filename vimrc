@@ -9,8 +9,11 @@ set showmatch
 
 
 ""special key
-"set list
-"set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+if hostname() == "PC" || hostname() == "mba-win"
+"	set list
+"	set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+endif
+
 
 ""color
 syntax enable
