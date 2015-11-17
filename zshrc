@@ -65,7 +65,8 @@ if [ $HOST = "macos.local" ];then
 	alias ll='ls -lhG'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi":
+	#alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
+	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 elif [ $HOST = "ubuntuMain" ];then
 	:
 elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
