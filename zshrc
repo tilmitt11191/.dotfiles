@@ -41,7 +41,8 @@ elif [ $HOST = "ubuntu128" ];then
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
-elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
+	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
 fi
 
@@ -55,6 +56,8 @@ elif [ $HOST = "PC" ];then
 elif [ $HOST = "mba-win" ];then
 	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/Dropbox/pc/mba-win/home/bin"
 	export PATH=$PATH:/cygdrive/f/Dropbox/pc/mba-win/home/bin
+elif [ $HOST = "ozu-PC" ];then
+	:
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
 fi
