@@ -1,5 +1,6 @@
 
 #### config
+echo "this is config"
 if [ $HOST = "macos.local" ];then
 export ZSH=~/.oh-my-zsh
 plugins=(git brew)
@@ -13,6 +14,7 @@ source $ZSH/oh-my-zsh.sh
 fi
 
 #### COLOR
+echo "this is color"
 if [ $HOST = "macos.local" ];then
 	#ZSH_THEME="dieter"
 	#ZSH_THEME="cloud"
@@ -47,6 +49,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 fi
 
 #### PATH ####
+echo "this is path"
 if [ $HOST = "macos.local" ];then
 	export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 	export PATH="$PATH:/Users/tilmitt/bin"
@@ -63,6 +66,7 @@ elif [ $HOST = "ubuntu128" ];then
 fi
 
 #### alias #####
+echo "this is alias"
 if [ $HOST = "macos.local" ];then
 	alias ls~'ls -G'
 	alias ll='ls -lhG'
@@ -70,6 +74,7 @@ if [ $HOST = "macos.local" ];then
 	alias vi='vim'
 	#alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
+	alias st="open $1 -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
 elif [ $HOST = "ubuntuMain" ];then
 	:
 elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
