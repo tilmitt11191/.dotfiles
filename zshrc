@@ -4,6 +4,11 @@ echo "this is config"
 if [ $HOST = "macos.local" ];then
 export ZSH=~/.oh-my-zsh
 plugins=(git brew)
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+#setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
 source $ZSH/oh-my-zsh.sh
 elif [ $HOST = "ubuntuMain" ];then
 export ZSH=~/.oh-my-zsh
