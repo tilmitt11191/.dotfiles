@@ -2,20 +2,27 @@
 #### config
 echo "this is config"
 if [ $HOST = "macos.local" ];then
-export ZSH=~/.oh-my-zsh
-plugins=(git brew)
-HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-#setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
-source $ZSH/oh-my-zsh.sh
-elif [ $HOST = "ubuntuMain" ];then
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+	export ZSH=~/.oh-my-zsh
+	plugins=(git brew)
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
+	#setopt hist_ignore_dups     # ignore duplication command history list
+	setopt share_history        # share command history data
+	source $ZSH/oh-my-zsh.sh
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" ];then
+	echo "this is config(ubuntuMain or ubuntu15)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
+	setopt share_history        # share command history data
 elif [ $HOST = "ubuntu128" ];then
-export ZSH=~/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+else
+	echo "this is config(else)"
 fi
 
 #### COLOR
@@ -36,7 +43,8 @@ if [ $HOST = "macos.local" ];then
 	colors
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
-elif [ $HOST = "ubuntuMain" ];then
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" ];then
+	echo "this is color(ubuntuMain or ubuntu15)"
 	ZSH_THEME="cloud"
 	#ZSH_THEME="dieter"
 	#ZSH_THEME="gentoo"
@@ -51,7 +59,10 @@ elif [ $HOST = "ubuntu128" ];then
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
+else
+	echo "this is color(else)"
 fi
+
 
 #### PATH ####
 echo "this is path"
@@ -66,13 +77,20 @@ elif [ $HOST = "mba-win" ];then
 	export PATH=$PATH:/cygdrive/f/Dropbox/pc/mba-win/home/bin
 elif [ $HOST = "ozu-PC" ];then
 	:
+elif [ $HOST = "ubuntu15" ];then
+	echo "this is path(ubuntu15)"
+	export PATH="$PATH:/home/alladmin/bin"
+
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
+else
+	echo "this is path(else)"
 fi
 
 #### alias #####
 echo "this is alias"
 if [ $HOST = "macos.local" ];then
+	echo "this is alias(macos.local)"
 	alias ls~'ls -G'
 	alias ll='ls -lhG'
 	alias mkdir='mkdir -p'
@@ -80,8 +98,12 @@ if [ $HOST = "macos.local" ];then
 	#alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias st="open $1 -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
-elif [ $HOST = "ubuntuMain" ];then
-	:
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" ];then
+	echo "this is alias(ubuntuMain or ubuntu15)"
+	alias ls='ls -FG --show-control-chars --color=auto'
+	alias ll='ls -lhF'
+	alias mkdir='mkdir -p'
+	alias vi='vim'
 elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
 	#source $ZSH/oh-my-zsh.sh
 	alias ls='ls -FG --show-control-chars --color=auto'
@@ -101,4 +123,6 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" ];then
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 # 候補を選ぶには <Tab> か Ctrl-N,B,F,P
 	zstyle ':completion:*:default' menu select=1
+else
+	echo "this is alias(else)"
 fi
