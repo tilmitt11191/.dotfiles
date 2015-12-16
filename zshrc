@@ -66,6 +66,7 @@ elif [ $HOST = "ubuntu128" ];then
 	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	echo "this is color(PC or mba-win or ozu-PC)"
+	#source ~/.colorsets/mintty-colors-solarized/sol.dark
 	ZSH_THEME="dieter"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
