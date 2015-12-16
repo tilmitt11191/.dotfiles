@@ -69,7 +69,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
 	ZSH_THEME="dieter"
 	export LSCOLORS=exfxcxdxbxegedabagacad
-	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
 	#PS1="%1~ %(!.#.$) "
 else
 	echo "this is color(else)"
