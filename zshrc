@@ -3,13 +3,21 @@
 echo "this is config"
 if [ $HOST = "macos.local" ];then
 	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
 	plugins=(git brew)
 	HISTFILE=~/.zsh_history
 	HISTSIZE=100000
 	SAVEHIST=100000
 	#setopt hist_ignore_dups     # ignore duplication command history list
 	setopt share_history        # share command history data
+elif [ $HOST = "PC" ];then
+	echo "this is config(PC)"
+	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
+	setopt share_history        # share command history data
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" ];then
 	echo "this is config(ubuntuMain or ubuntu15)"
 	export ZSH=~/.oh-my-zsh
@@ -57,8 +65,11 @@ elif [ $HOST = "ubuntu128" ];then
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
+	echo "this is color(PC or mba-win or ozu-PC)"
+	ZSH_THEME="dieter"
 	export LSCOLORS=exfxcxdxbxegedabagacad
-	PS1="%1~ %(!.#.$) "
+	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	#PS1="%1~ %(!.#.$) "
 else
 	echo "this is color(else)"
 fi
