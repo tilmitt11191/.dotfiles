@@ -20,8 +20,8 @@ elif [ $HOST = "PC" ];then
 	setopt share_history        # share command history data
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" ];then
 	echo "this is config(ubuntuMain or ubuntu15 or ubuntuPuyoque)"
-	export ZSH=~/.oh-my-zsh
-	source $ZSH/oh-my-zsh.sh
+	#export ZSH=~/.oh-my-zsh
+	#source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
 	HISTSIZE=100000
 	SAVEHIST=100000
@@ -53,12 +53,13 @@ if [ $HOST = "macos.local" ];then
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" ];then
 	echo "this is color(ubuntuMain or ubuntu15 or ubuntuPuyoque)"
-	ZSH_THEME="cloud"
+	#ZSH_THEME="cloud"
 	#ZSH_THEME="dieter"
 	#ZSH_THEME="gentoo"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	#export LSCOLORS=excxcxdxcxegedabagacgx
-	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	#PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "ubuntu128" ];then
 	ZSH_THEME="dieter"
 	export LSCOLORS=exfxcxdxbxegedabagacad
