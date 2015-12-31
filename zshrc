@@ -1,7 +1,8 @@
 
 #### config
 echo "this is config"
-if [ $HOST = "macos.local" ];then
+if [ $HOST = "macos.local" -o $HOST = "macos" ];then
+	echo "this is config(mac $HOST)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	plugins=(git brew)
@@ -32,7 +33,8 @@ fi
 
 #### COLOR
 echo "this is color"
-if [ $HOST = "macos.local" ];then
+if [ $HOST = "macos.local" -o $HOST = "macos" ];then
+	echo "this is color(mac $HOST)"
 	#ZSH_THEME="dieter"
 	#ZSH_THEME="cloud"
 	#ZSH_THEME="robbyrussell"
@@ -75,7 +77,8 @@ fi
 
 #### PATH ####
 echo "this is path"
-if [ $HOST = "macos.local" ];then
+if [ $HOST = "macos.local" -o $HOST = "macos" ];then
+	echo "this is path(mac $HOST)"
 	export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 	export PATH="$PATH:/Users/tilmitt/bin"
 elif [ $HOST = "PC" ];then
@@ -99,8 +102,8 @@ fi
 
 #### alias #####
 echo "this is alias"
-if [ $HOST = "macos.local" ];then
-	echo "this is alias(macos.local)"
+if [ $HOST = "macos.local" -o $HOST = "macos" ];then
+	echo "this is alias(mac $HOST)"
 	alias ls~'ls -G'
 	alias ll='ls -lhG'
 	alias mkdir='mkdir -p'
