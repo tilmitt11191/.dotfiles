@@ -66,10 +66,10 @@ elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o 
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	echo "this is color(PC or mba-win or ozu-PC)"
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
-	ZSH_THEME="dieter"
+	#ZSH_THEME="dieter"
 	export LSCOLORS=exfxcxdxbxegedabagacad
-	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
-	#PS1="%1~ %(!.#.$) "
+	#PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
+	PS1="%1~ %(!.#.$) "
 else
 	echo "this is color(else)"
 fi
