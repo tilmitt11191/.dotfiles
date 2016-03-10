@@ -91,7 +91,7 @@ elif [ $HOST = "ozu-PC" ];then
 	:
 
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
-	echo "this is path(ubuntu***))"
+	echo "this is path(ubuntu***)"
 	export PATH="$PATH:/home/alladmin/bin"
 
 elif [ $HOST = "ubuntu128" ];then
