@@ -17,7 +17,7 @@ endif
 
 ""color
 syntax enable
-if hostname() == "ubuntu128"
+if hostname() == "ubuntu128" || hostname() == "ubuntuMain2"
 	colorscheme twilight
 	highlight Normal ctermbg=none
 elseif hostname() == "macos.local"
@@ -54,7 +54,7 @@ endif
 
 ""corsor
 set number
-if hostname() == "ubuntu128"
+if hostname() == "ubuntu128" || hostname() == "ubuntuMain2"
 	hi Normal ctermfg=252 ctermbg=none
 	hi LineNr ctermbg=none ctermfg=darkcyan
 	hi clear CursorLine
