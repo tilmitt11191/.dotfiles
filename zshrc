@@ -91,8 +91,9 @@ elif [ $HOST = "ozu-PC" ];then
 	export PATH=$PATH:~/bin
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
 	echo "this is path(ubuntu***)"
-	export PATH="$PATH:/home/alladmin/bin"
-
+	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+	eval "$(rbenv init -)"
+	##http://www.virment.com/setup-rails-ubuntu/
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
 else
