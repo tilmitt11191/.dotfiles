@@ -27,6 +27,14 @@ elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $H
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
+elif [ $HOST = "www2271.sakura.ne.jp" ];then
+	echo "this is config(sakura)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
+	setopt share_history
 else
 	echo "this is config(else)"
 fi
@@ -70,6 +78,10 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	#PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
 	PS1="%1~ %(!.#.$) "
+elif [ $HOST = "www2271.sakura.ne.jp" ];then
+	echo "this is color(sakura)"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 else
 	echo "this is color(else)"
 fi
@@ -136,6 +148,12 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 # 候補を選ぶには <Tab> か Ctrl-N,B,F,P
 	zstyle ':completion:*:default' menu select=1
+elif [ $HOST = "www2271.sakura.ne.jp" ];then
+	echo "this is alias(ubuntu***)"
+	alias ls='ls -FG --show-control-chars --color=auto'
+	alias ll='ls -lhF'
+	alias mkdir='mkdir -p'
+	alias vi='vim'
 else
 	echo "this is alias(else)"
 fi
