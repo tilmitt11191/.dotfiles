@@ -19,7 +19,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
@@ -60,7 +60,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
 
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
 	echo "this is color(ubuntu***)"
 	#ZSH_THEME="cloud"
 	#ZSH_THEME="dieter"
@@ -97,6 +97,9 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	echo "this is path(mac $HOST)"
 	export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"
 	export PATH="$PATH:/Users/tilmitt/bin"
+elif [ $(echo $HOST | grep -e "ubuntu") ];then
+	echo "this is path(ubuntu*)"
+	export PATH=$PATH:~/bin
 elif [ $HOST = "PC" ];then
 	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:"
 	export PATH=$PATH:~/bin
@@ -121,11 +124,7 @@ elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	export GEM_HOME=$HOME/local/rubygems/gems
 	export RUBYLIB=$HOME/local/rubygems/lib
 	export RB_USER_INSTALL=true
-<<<<<<< HEAD
-	export PATH=$PATH:$HOME/local/rubygems/bin:$HOME/local/rubygems/gems/bin
-=======
-	export PATH=$PATH:$HOME/local/rubygems/bin
->>>>>>> 273cad49685f5685bf11c4fad9602e548c5e8c7f
+	export PATH=$PATH:$HOME/local/rubygems/gems/bin
 else
 	echo "this is path(else)"
 fi
@@ -141,7 +140,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	#alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias st="open $1 -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
 	echo "this is alias(ubuntu***)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
@@ -179,71 +178,65 @@ fi
 ##etc
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"
-<<<<<<< HEAD
 
-fi
-=======
->>>>>>> 273cad49685f5685bf11c4fad9602e548c5e8c7f
-export PATH=$PATH:$HOME/local/ports/bin
-export NODE_PATH=$HOME/local/ports/bin/node
-export NODE_MODULES=$HOME/local/lib/node_modules
-export LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
+	export PATH=$PATH:$HOME/local/ports/bin
+	export NODE_PATH=$HOME/local/ports/bin/node
+	export NODE_MODULES=$HOME/local/lib/node_modules
+	export LD_LIBRARY_PATH
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
 
-export INSTALL_AS_USER=yes
-export PREFIX=$HOME/local/ports
-export LOCALBASE=$HOME/local/ports
-export PKG_DBDIR=$LOCALBASE/var/db/pkg
-export PKG_TMPDIR=$LOCALBASE/tmp/
-export PORT_DBDIR=$LOCALBASE/var/db/pkg
-export DISTDIR=$LOCALBASE/tmp/dist
-export WRKDIRPREFIX=$LOCALBASE/tmp/work
-export PORTSDIR=$HOME/local/work/ports
-export PKGTOOLS_CONF=$LOCALBASE/etc/pkgtools.conf
-export DEPENDS_TARGET='install clean'
-
-export X11BASE=$LOCALBASE
-
-export PKG_CONFIG_PATH="$HOME/local/ports/lib/pkgconfig:$HOME/local/ports/libdata/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/libdata/pkgconfig:/usr/libdata/pkgconfig"
-
+	export INSTALL_AS_USER=yes
+	export PREFIX=$HOME/local/ports
+	export LOCALBASE=$HOME/local/ports
+	export PKG_DBDIR=$LOCALBASE/var/db/pkg
+	export PKG_TMPDIR=$LOCALBASE/tmp/
+	export PORT_DBDIR=$LOCALBASE/var/db/pkg
+	export DISTDIR=$LOCALBASE/tmp/dist
+	export WRKDIRPREFIX=$LOCALBASE/tmp/work
+	export PORTSDIR=$HOME/local/work/ports
+	export PKGTOOLS_CONF=$LOCALBASE/etc/pkgtools.conf
+	export DEPENDS_TARGET='install clean'
+	
+	export X11BASE=$LOCALBASE
+	
+	export PKG_CONFIG_PATH="$HOME/local/ports/lib/pkgconfig:$HOME/local/ports/libdata/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/libdata/pkgconfig:/usr/libdata/pkgconfig"
+	
 # Set user and group variables to ourself
-export BINOWN=`whoami`
-export BINGRP=`id -G -n $BINOWN`
-export SHAREOWN=$BINOWN
-export SHAREGRP=$BINGRP
-export MANOWN=$BINOWN
-export MANGRP=$BINGRP
+	export BINOWN=`whoami`
+	export BINGRP=`id -G -n $BINOWN`
+	export SHAREOWN=$BINOWN
+	export SHAREGRP=$BINGRP
+	export MANOWN=$BINOWN
+	export MANGRP=$BINGRP
+	
+	# Make sure files are installed with correct default permissions
+	export BINMODE=744
+	export SHAREMODE=644
+	export MANMODE=644
+	
+	# Make sure we don't really try to become root, but just execute everything as ourselves
+	export SU_CMD="sh -c"
 
-# Make sure files are installed with correct default permissions
-export BINMODE=744
-export SHAREMODE=644
-export MANMODE=644
+	# Make sure the systemdefault make.conf is not read
+	export __MAKE_CONF=$LOCALBASE/etc/make.conf
 
-# Make sure we don't really try to become root, but just execute everything as ourselves
-export SU_CMD="sh -c"
+	# Keep our own version of ldconfig hints
+	export LDCONFIG="/sbin/ldconfig -i -f $LOCALBASE/var/run/ld-elf.so.hints"
+	#export LDCONFIG="/sbin/ldconfig -f=$LOCALBASE/var/run/ld-elf.so.hints -i -R=$LOCALBASE/etc/ld-elf.so.conf "
+	export LD_LIBRARY_PATH=$LOCALBASE/lib
+	export LD_RUN_PATH=$LOCALBASE/lib
 
-# Make sure the systemdefault make.conf is not read
-export __MAKE_CONF=$LOCALBASE/etc/make.conf
+	export PATH=$LOCALBASE/bin:$LOCALBASE/sbin:$PATH
+	export MANPATH_MAP=$LOCALBASE/bin:$LOCALBASE/man
 
-# Keep our own version of ldconfig hints
-export LDCONFIG="/sbin/ldconfig -i -f $LOCALBASE/var/run/ld-elf.so.hints"
-#export LDCONFIG="/sbin/ldconfig -f=$LOCALBASE/var/run/ld-elf.so.hints -i -R=$LOCALBASE/etc/ld-elf.so.conf "
-export LD_LIBRARY_PATH=$LOCALBASE/lib
-export LD_RUN_PATH=$LOCALBASE/lib
-
-export PATH=$LOCALBASE/bin:$LOCALBASE/sbin:$PATH
-export MANPATH_MAP=$LOCALBASE/bin:$LOCALBASE/man
-
-# Set application specific variables to make sure it doesn't pick up things from the main system
-export APXS=$LOCALBASE/sbin/apxs
-export PERL=$LOCALBASE/bin/perl
-export PERL5=$PERL
-export SITE_PERL=$LOCALBASE/lib/perl5/site_perl/5.18.4
-export SITE_PERL5=$SITE_PERL
-export PERL_VERSION=5.18.4
-export PERL_VER=$PERL_VERSION
-
-export SRCCONF=~/local/ports/etc/src.conf
-<<<<<<< HEAD
-=======
+	# Set application specific variables to make sure it doesn't pick up things from the main system
+	export APXS=$LOCALBASE/sbin/apxs
+	export PERL=$LOCALBASE/bin/perl
+	export PERL5=$PERL
+	export SITE_PERL=$LOCALBASE/lib/perl5/site_perl/5.18.4
+	export SITE_PERL5=$SITE_PERL
+	export PERL_VERSION=5.18.4
+	export PERL_VER=$PERL_VERSION
+	
+	export SRCCONF=~/local/ports/etc/src.conf
 fi
