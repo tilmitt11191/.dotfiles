@@ -31,6 +31,7 @@ elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is config(sakura)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
+	export MAILCHECK=0
 	HISTFILE=~/.zsh_history
 	HISTSIZE=100000
 	SAVEHIST=100000
@@ -80,7 +81,10 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is color(sakura)"
-	export LSCOLORS=exfxcxdxbxegedabagacad
+	export CLICOLOR=1
+	#export LSCOLORS=excxcxdxcxegedabagacgx
+	#export LSCOLORS=Exfxcxdxbxegedabagacad
+	export LSCOLORS=CxGxcxdxCxegedabagacad
 	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
 else
 	echo "this is color(else)"
@@ -108,6 +112,16 @@ elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $H
 	##http://www.virment.com/setup-rails-ubuntu/
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
+elif [ $HOST = "www2271.sakura.ne.jp" ];then
+	echo "this is path(sakura)"
+	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+	export TMPDIR=$HOME/tmp
+	export MAKE=gmake
+	eval "$(rbenv init -)"
+	export GEM_HOME=$HOME/local/rubygems/gems
+	export RUBYLIB=$HOME/local/rubygems/lib
+	export RB_USER_INSTALL=true
+	export PATH=$PATH:$HOME/local/rubygems/bin:$HOME/local/rubygems/gems/bin
 else
 	echo "this is path(else)"
 fi
@@ -149,11 +163,77 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 # 候補を選ぶには <Tab> か Ctrl-N,B,F,P
 	zstyle ':completion:*:default' menu select=1
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
-	echo "this is alias(ubuntu***)"
-	alias ls='ls -FG --show-control-chars --color=auto'
+	echo "this is alias(sakura)"
+	#alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
 else
 	echo "this is alias(else)"
 fi
+
+##etc
+if [ $HOST = "www2271.sakura.ne.jp" ];then
+	echo "for node.js at sakura"
+
+fi
+export PATH=$PATH:$HOME/local/ports/bin
+export NODE_PATH=$HOME/local/ports/bin/node
+export NODE_MODULES=$HOME/local/lib/node_modules
+export LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
+
+export INSTALL_AS_USER=yes
+export PREFIX=$HOME/local/ports
+export LOCALBASE=$HOME/local/ports
+export PKG_DBDIR=$LOCALBASE/var/db/pkg
+export PKG_TMPDIR=$LOCALBASE/tmp/
+export PORT_DBDIR=$LOCALBASE/var/db/pkg
+export DISTDIR=$LOCALBASE/tmp/dist
+export WRKDIRPREFIX=$LOCALBASE/tmp/work
+export PORTSDIR=$HOME/local/work/ports
+export PKGTOOLS_CONF=$LOCALBASE/etc/pkgtools.conf
+export DEPENDS_TARGET='install clean'
+
+export X11BASE=$LOCALBASE
+
+export PKG_CONFIG_PATH="$HOME/local/ports/lib/pkgconfig:$HOME/local/ports/libdata/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/libdata/pkgconfig:/usr/libdata/pkgconfig"
+
+# Set user and group variables to ourself
+export BINOWN=`whoami`
+export BINGRP=`id -G -n $BINOWN`
+export SHAREOWN=$BINOWN
+export SHAREGRP=$BINGRP
+export MANOWN=$BINOWN
+export MANGRP=$BINGRP
+
+# Make sure files are installed with correct default permissions
+export BINMODE=744
+export SHAREMODE=644
+export MANMODE=644
+
+# Make sure we don't really try to become root, but just execute everything as ourselves
+export SU_CMD="sh -c"
+
+# Make sure the systemdefault make.conf is not read
+export __MAKE_CONF=$LOCALBASE/etc/make.conf
+
+# Keep our own version of ldconfig hints
+export LDCONFIG="/sbin/ldconfig -i -f $LOCALBASE/var/run/ld-elf.so.hints"
+#export LDCONFIG="/sbin/ldconfig -f=$LOCALBASE/var/run/ld-elf.so.hints -i -R=$LOCALBASE/etc/ld-elf.so.conf "
+export LD_LIBRARY_PATH=$LOCALBASE/lib
+export LD_RUN_PATH=$LOCALBASE/lib
+
+export PATH=$LOCALBASE/bin:$LOCALBASE/sbin:$PATH
+export MANPATH_MAP=$LOCALBASE/bin:$LOCALBASE/man
+
+# Set application specific variables to make sure it doesn't pick up things from the main system
+export APXS=$LOCALBASE/sbin/apxs
+export PERL=$LOCALBASE/bin/perl
+export PERL5=$PERL
+export SITE_PERL=$LOCALBASE/lib/perl5/site_perl/5.18.4
+export SITE_PERL5=$SITE_PERL
+export PERL_VERSION=5.18.4
+export PERL_VER=$PERL_VERSION
+
+export SRCCONF=~/local/ports/etc/src.conf
