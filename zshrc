@@ -175,8 +175,6 @@ fi
 ##etc
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"
-
-fi
 export PATH=$PATH:$HOME/local/ports/bin
 export NODE_PATH=$HOME/local/ports/bin/node
 export NODE_MODULES=$HOME/local/lib/node_modules
@@ -237,3 +235,4 @@ export PERL_VERSION=5.18.4
 export PERL_VER=$PERL_VERSION
 
 export SRCCONF=~/local/ports/etc/src.conf
+fi
