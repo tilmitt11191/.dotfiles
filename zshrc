@@ -121,7 +121,11 @@ elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	export GEM_HOME=$HOME/local/rubygems/gems
 	export RUBYLIB=$HOME/local/rubygems/lib
 	export RB_USER_INSTALL=true
+<<<<<<< HEAD
 	export PATH=$PATH:$HOME/local/rubygems/bin:$HOME/local/rubygems/gems/bin
+=======
+	export PATH=$PATH:$HOME/local/rubygems/bin
+>>>>>>> 273cad49685f5685bf11c4fad9602e548c5e8c7f
 else
 	echo "this is path(else)"
 fi
@@ -175,8 +179,11 @@ fi
 ##etc
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"
+<<<<<<< HEAD
 
 fi
+=======
+>>>>>>> 273cad49685f5685bf11c4fad9602e548c5e8c7f
 export PATH=$PATH:$HOME/local/ports/bin
 export NODE_PATH=$HOME/local/ports/bin/node
 export NODE_MODULES=$HOME/local/lib/node_modules
@@ -237,3 +244,7 @@ export PERL_VERSION=5.18.4
 export PERL_VER=$PERL_VERSION
 
 export SRCCONF=~/local/ports/etc/src.conf
+<<<<<<< HEAD
+=======
+fi
+>>>>>>> 273cad49685f5685bf11c4fad9602e548c5e8c7f
