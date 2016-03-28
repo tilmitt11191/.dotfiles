@@ -34,7 +34,7 @@ elseif hostname() == "PC"
 elseif hostname() == "mba-win"
 	colorscheme molokai
 elseif hostname() == "www2271.sakura.ne.jp"
-	colorscheme elflord
+	colorscheme molokai
 	highlight Normal ctermbg=none
 endif	
 	"colorscheme hybrid
