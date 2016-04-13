@@ -19,6 +19,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
+	set bell-style none
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
@@ -106,8 +107,7 @@ elif [ $HOST = "PC" ];then
 	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:"
 	export PATH=$PATH:~/bin
 elif [ $HOST = "mba-win" ];then
-	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/Dropbox/pc/mba-win/home/bin"
-	export PATH=$PATH:/cygdrive/f/Dropbox/pc/mba-win/home/bin
+	export PATH=$PATH:$HOME/bin:$HOME/bin/cygwin/bin:/cygdrive/f/Dropbox/pc/mba-win/home/bin
 elif [ $HOST = "ozu-PC" ];then
 	export PATH=$PATH:~/bin
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
