@@ -19,7 +19,6 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
-	set bell-style none
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
