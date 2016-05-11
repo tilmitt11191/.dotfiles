@@ -51,12 +51,12 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	#ZSH_THEME="aussiegeek"
 	#ZSH_THEME="candy"
 	#ZSH_THEME="Solish"
-	export LSCOLORS=excxcxdxcxegedabagacgx
-	export LSCOLORS=excxcxdxcxexexaxaxaxgx
+	#export LSCOLORS=excxcxdxcxegedabagacgx
+	export LSCOLORS=gxcxcxdxcxexexaxaxaxgx
 	#export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 	export LS_COLORS='di=4;32;32:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-	autoload colors
-	colors
+	#autoload colors
+	#colors
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
 
