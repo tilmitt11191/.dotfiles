@@ -19,7 +19,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
+elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
@@ -60,7 +60,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
 
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
+elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	#ZSH_THEME="cloud"
 	#ZSH_THEME="dieter"
@@ -99,7 +99,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	export PATH="$PATH:/Users/tilmitt/bin"
 
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
-	echo "this is path(ubuntu*)"
+	echo "this is path(ubuntu***)"
 	export PATH=$PATH:~/bin
 
 elif [ $HOST = "PC" ];then
@@ -109,13 +109,13 @@ elif [ $HOST = "mba-win" ];then
 	export PATH=$PATH:$HOME/bin:$HOME/bin/cygwin/bin:/cygdrive/f/Dropbox/pc/mba-win/home/bin
 elif [ $HOST = "ozu-PC" ];then
 	export PATH=$PATH:~/bin
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" ];then
+elif [ $HOST = "ubuntu128" ];then
+	export PATH="$PATH:$ZSH:/home/ffffe/bin"
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" -o $HOST = "ubuntuWork" ];then
 	echo "this is path(ubuntu***)"
 	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
-elif [ $HOST = "ubuntu128" ];then
-	export PATH="$PATH:$ZSH:/home/ffffe/bin"
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
 	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
@@ -141,7 +141,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	#alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias mi="open $1 -a /Applications/mi.app/Contents/MacOS/mi"
 	alias st="open $1 -a /Applications/Sublime\ Text.app/Contents/MacOS/Sublime\ Text"
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" ];then
+elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is alias(ubuntu***)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
