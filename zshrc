@@ -114,6 +114,7 @@ elif [ $HOST = "ubuntu128" ];then
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" -o $HOST = "ubuntuWork" ];then
 	echo "this is path(ubuntu***)"
 	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+	export CLASSPATH=$CLASSPATH:~/c/Program\ Files/Weka-3-8/weka.jar          
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
