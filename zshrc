@@ -100,7 +100,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is path(ubuntu***)"
-	export PATH=$PATH:~/bin
+	export PATH=$PATH:~/bin:
 
 elif [ $HOST = "PC" ];then
 	export PATH="/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/eclipse/java/8/bin:"
