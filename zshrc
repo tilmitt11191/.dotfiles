@@ -19,6 +19,13 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
 	HISTSIZE=100000
 	SAVEHIST=100000
 	setopt share_history        # share command history data
+elif [ $HOST = "ubuntuMain" ];then
+	echo "this is config(ubuntuMain)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
@@ -59,7 +66,10 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	#colors
 	zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 	PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%{${fg[green]}%}%1~ $%{${reset_color}%} '
-
+elif [ $HOST = "ubuntuMain" ];then
+	echo "this is color(ubuntuMain)"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	PS1="%1~ %(!.#.$) "
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	#ZSH_THEME="cloud"
