@@ -26,7 +26,14 @@ elif [ $HOST = "ubuntuMain" ];then
 	HISTFILE=~/.zsh_history
 	HISTSIZE=100000
 	SAVEHIST=100000
-elif [ $(echo $HOST | grep -e "ubuntu") ];then
+elif [ $HOST = "ubuntuMain3" ];then
+	echo "this is config(ubuntuMain3)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=100000
+	SAVEHIST=100000
+elif [ $HOST = "ubuntuMain" ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
