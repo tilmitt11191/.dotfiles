@@ -31,8 +31,8 @@ elif [ $HOST = "ubuntuMain3" ];then
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
-	HISTSIZE=100000
-	SAVEHIST=100000
+	HISTSIZE=1000000
+	SAVEHIST=1000000
 elif [ $HOST = "ubuntuMain" ];then
 	echo "this is config(ubuntu***)"
 	export ZSH=~/.oh-my-zsh
