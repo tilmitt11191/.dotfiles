@@ -136,14 +136,15 @@ elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $H
 	##http://www.virment.com/setup-rails-ubuntu/
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
-	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
-	export TMPDIR=$HOME/tmp
-	export MAKE=gmake
-	eval "$(rbenv init -)"
+	export PATH="$PATH:$HOME/bin"
+	#export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+	#export TMPDIR=$HOME/tmp
+	#export MAKE=gmake
+	#eval "$(rbenv init -)"
 	export GEM_HOME=$HOME/local/rubygems/gems
-	export RUBYLIB=$HOME/local/rubygems/lib
-	export RB_USER_INSTALL=true
-	export PATH=$PATH:$HOME/local/rubygems/gems/bin
+	#export RUBYLIB=$HOME/local/rubygems/lib
+	#export RB_USER_INSTALL=true
+	#export PATH=$PATH:$HOME/local/rubygems/gems/bin
 else
 	echo "this is path(else)"
 fi
@@ -198,70 +199,70 @@ fi
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"
 
-	export PATH=$PATH:$HOME/local/ports/bin
-	export NODE_PATH=$HOME/local/ports/bin/node
-	export NODE_MODULES=$HOME/local/lib/node_modules
-	export LD_LIBRARY_PATH
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
+	#export PATH=$PATH:$HOME/local/ports/bin
+	#export NODE_PATH=$HOME/local/ports/bin/node
+	#export NODE_MODULES=$HOME/local/lib/node_modules
+	#export LD_LIBRARY_PATH
+	#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
 
-	export INSTALL_AS_USER=yes
-	export PREFIX=$HOME/local/ports
-	export LOCALBASE=$HOME/local/ports
-	export PKG_DBDIR=$LOCALBASE/var/db/pkg
-	export PKG_TMPDIR=$LOCALBASE/tmp/
-	export PORT_DBDIR=$LOCALBASE/var/db/pkg
-	export DISTDIR=$LOCALBASE/tmp/dist
-	export WRKDIRPREFIX=$LOCALBASE/tmp/work
-	export PORTSDIR=$HOME/local/work/ports
-	export PKGTOOLS_CONF=$LOCALBASE/etc/pkgtools.conf
-	export DEPENDS_TARGET='install clean'
+	#export INSTALL_AS_USER=yes
+	#export PREFIX=$HOME/local/ports
+	#export LOCALBASE=$HOME/local/ports
+	#export PKG_DBDIR=$LOCALBASE/var/db/pkg
+	#export PKG_TMPDIR=$LOCALBASE/tmp/
+	#export PORT_DBDIR=$LOCALBASE/var/db/pkg
+	#export DISTDIR=$LOCALBASE/tmp/dist
+	#export WRKDIRPREFIX=$LOCALBASE/tmp/work
+	#export PORTSDIR=$HOME/local/work/ports
+	#export PKGTOOLS_CONF=$LOCALBASE/etc/pkgtools.conf
+	#export DEPENDS_TARGET='install clean'
 	
-	export X11BASE=$LOCALBASE
+	#export X11BASE=$LOCALBASE
 	
-	export PKG_CONFIG_PATH="$HOME/local/ports/lib/pkgconfig:$HOME/local/ports/libdata/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/libdata/pkgconfig:/usr/libdata/pkgconfig"
+	#export PKG_CONFIG_PATH="$HOME/local/ports/lib/pkgconfig:$HOME/local/ports/libdata/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:/usr/local/libdata/pkgconfig:/usr/libdata/pkgconfig"
 	
 # Set user and group variables to ourself
-	export BINOWN=`whoami`
-	export BINGRP=`id -G -n $BINOWN`
-	export SHAREOWN=$BINOWN
-	export SHAREGRP=$BINGRP
-	export MANOWN=$BINOWN
-	export MANGRP=$BINGRP
+	#export BINOWN=`whoami`
+	#export BINGRP=`id -G -n $BINOWN`
+	#export SHAREOWN=$BINOWN
+	#export SHAREGRP=$BINGRP
+	#export MANOWN=$BINOWN
+	#export MANGRP=$BINGRP
 	
 	# Make sure files are installed with correct default permissions
-	export BINMODE=744
-	export SHAREMODE=644
-	export MANMODE=644
+	#export BINMODE=744
+	#export SHAREMODE=644
+	#export MANMODE=644
 	
 	# Make sure we don't really try to become root, but just execute everything as ourselves
-	export SU_CMD="sh -c"
+	#export SU_CMD="sh -c"
 
 	# Make sure the systemdefault make.conf is not read
-	export __MAKE_CONF=$LOCALBASE/etc/make.conf
+	#export __MAKE_CONF=$LOCALBASE/etc/make.conf
 
 	# Keep our own version of ldconfig hints
-	export LDCONFIG="/sbin/ldconfig -i -f $LOCALBASE/var/run/ld-elf.so.hints"
+	#export LDCONFIG="/sbin/ldconfig -i -f $LOCALBASE/var/run/ld-elf.so.hints"
 	#export LDCONFIG="/sbin/ldconfig -f=$LOCALBASE/var/run/ld-elf.so.hints -i -R=$LOCALBASE/etc/ld-elf.so.conf "
-	export LD_LIBRARY_PATH=$LOCALBASE/lib
-	export LD_RUN_PATH=$LOCALBASE/lib
+	#export LD_LIBRARY_PATH=$LOCALBASE/lib
+	#export LD_RUN_PATH=$LOCALBASE/lib
 
-	export PATH=$LOCALBASE/bin:$LOCALBASE/sbin:$PATH
-	export MANPATH_MAP=$LOCALBASE/bin:$LOCALBASE/man
+	#export PATH=$LOCALBASE/bin:$LOCALBASE/sbin:$PATH
+	#export MANPATH_MAP=$LOCALBASE/bin:$LOCALBASE/man
 
 	# Set application specific variables to make sure it doesn't pick up things from the main system
-	export APXS=$LOCALBASE/sbin/apxs
-	export PERL=$LOCALBASE/bin/perl
-	export PERL5=$PERL
-	export SITE_PERL=$LOCALBASE/lib/perl5/site_perl/5.18.4
-	export SITE_PERL5=$SITE_PERL
-	export PERL_VERSION=5.18.4
-	export PERL_VER=$PERL_VERSION
+	#export APXS=$LOCALBASE/sbin/apxs
+	#export PERL=$LOCALBASE/bin/perl
+	#export PERL5=$PERL
+	#export SITE_PERL=$LOCALBASE/lib/perl5/site_perl/5.18.4
+	#export SITE_PERL5=$SITE_PERL
+	#export PERL_VERSION=5.18.4
+	#export PERL_VER=$PERL_VERSION
 	
-	export SRCCONF=~/local/ports/etc/src.conf
+	#export SRCCONF=~/local/ports/etc/src.conf
 fi
 
-PATH="/home/tilmi_000/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/tilmi_000/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/tilmi_000/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/tilmi_000/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/tilmi_000/perl5"; export PERL_MM_OPT;
+#PATH="/home/tilmi_000/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/tilmi_000/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/tilmi_000/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/tilmi_000/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/tilmi_000/perl5"; export PERL_MM_OPT;
