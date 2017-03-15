@@ -128,9 +128,9 @@ elif [ $HOST = "ozu-PC" ];then
 	export PATH=$PATH:~/bin
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
-elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" -o $HOST = "ubuntuWork" ];then
+elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntuMain3" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" -o $HOST = "ubuntuWork" ];then
 	echo "this is path(ubuntu***)"
-	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin"
+	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin"
 	export CLASSPATH=$CLASSPATH:~/c/Program\ Files/Weka-3-8/weka.jar          
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
