@@ -33,14 +33,14 @@ elif [ $HOST = "ubuntuMain3" ];then
 	HISTFILE=~/.zsh_history
 	HISTSIZE=1000000
 	SAVEHIST=1000000
-elif [ $HOST = "ubuntuMain" ];then
-	echo "this is config(ubuntu***)"
+elif [ $HOST = "ubuntuVM" ];then
+	echo "this is config(ubuntuVM)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
 	HISTSIZE=100000
 	SAVEHIST=100000
-	setopt share_history        # share command history data
+	setopt share_history # share command history data
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is config(sakura)"
 	export ZSH=~/.oh-my-zsh
@@ -128,6 +128,13 @@ elif [ $HOST = "ozu-PC" ];then
 	export PATH=$PATH:~/bin
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
+elif [ $HOST = "ubuntuVM" ];then
+	echo "this is path(ubuntuVM)"
+	export PYENV_ROOT="$HOME/.pyenv
+	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	eval "$(rbenv init -)"
+	eval "$(pyenv init -)"
 elif [ $HOST = "ubuntuMain" -o $HOST = "ubuntuMain2" -o $HOST = "ubuntuMain3" -o $HOST = "ubuntu15" -o $HOST = "ubuntuPuyoque" -o $HOST = "ubuntu128" -o $HOST = "ubuntuSim" -o $HOST = "ubuntuWork" ];then
 	echo "this is path(ubuntu***)"
 	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin"
