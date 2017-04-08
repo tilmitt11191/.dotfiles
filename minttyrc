@@ -5,3 +5,6 @@ Font=Ricty Diminished
 FontHeight=14
 Transparency=high
 BellType=0
+WindowShortcuts=no
+ZoomShortcuts=no
+ComposeKey=ctrl
