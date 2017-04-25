@@ -11,8 +11,8 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	SAVEHIST=100000
 	#setopt hist_ignore_dups     # ignore duplication command history list
 	setopt share_history        # share command history data
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
-	echo "this is config(PC or mba-win or o-PC)"
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
+	echo "this is config(PC or mba-win or o-PC or libra)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
@@ -81,7 +81,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is color(PC or mba-win or o-PC)"
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
 	#ZSH_THEME="dieter"
@@ -117,6 +117,9 @@ elif [ $HOST = "mba-win" ];then
 
 elif [ $HOST = "ozu-PC" ];then
 	export PATH="$PATH:~/bin"
+
+elif [ $HOST = "libra" ];then
+	export PATH="/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
 
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
@@ -174,7 +177,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias mkdir='mkdir -p'
 	alias vi='vim'
 
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
