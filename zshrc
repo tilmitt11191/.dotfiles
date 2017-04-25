@@ -119,7 +119,7 @@ elif [ $HOST = "ozu-PC" ];then
 	export PATH="$PATH:~/bin"
 
 elif [ $HOST = "libra" ];then
-	export PATH="/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
+	export PATH=" /cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin: /cygdrive/c/ProgramData/Anaconda3/envs/python35: /cygdrive/c/ProgramData/Anaconda3/envs/python35/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
 
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
