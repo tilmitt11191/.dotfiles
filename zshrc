@@ -33,6 +33,13 @@ elif [ $HOST = "ubuntuMain4" ];then
 	HISTFILE=~/.zsh_history
 	HISTSIZE=1000000
 	SAVEHIST=1000000
+elif [ $HOST = "Gemini" ];then
+	echo "this is config(Gemini)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=1000000
+	SAVEHIST=1000000
 elif [ $HOST = "ubuntuVM" ];then
 	echo "this is config(ubuntuVM)"
 	export ZSH=~/.oh-my-zsh
@@ -79,6 +86,10 @@ elif [ $HOST = "ubuntuMain" ];then
 	PS1="%1~ %(!.#.$) "
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	PS1="%1~ %(!.#.$) "
+elif [ $HOST = "Gemini" ];then
+	echo "this is color(Gemini)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
@@ -139,6 +150,11 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
 
+elif [ $HOST = "Gemini" ];then
+	echo "this is path(Gemini)"
+	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin"
+	eval "$(rbenv init -)"
+
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
 	export PATH="$PATH:$HOME/bin"
@@ -176,7 +192,12 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-
+elif [ $HOST = "Gemini" ];then
+	echo "this is alias(Gemini)"
+	alias ls='ls -FG --show-control-chars --color=auto'
+	alias ll='ls -lhF'
+	alias mkdir='mkdir -p'
+	alias vi='vim'
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
 	alias ls='ls -FG --show-control-chars --color=auto'
