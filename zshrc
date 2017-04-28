@@ -135,6 +135,14 @@ elif [ $HOST = "libra" ];then
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
 
+elif [ $HOST = "ubuntuMain4" ];then
+	echo "this is path(ubuntuMain4)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	eval "$(rbenv init -)"
+	eval "$(pyenv init -)"
+
 elif [ $HOST = "ubuntuVM" ];then
 	echo "this is path(ubuntuVM)"
 	export PYENV_ROOT="$HOME/.pyenv"
