@@ -138,10 +138,10 @@ elif [ $HOST = "ubuntu128" ];then
 elif [ $HOST = "ubuntuMain4" ];then
 	echo "this is path(ubuntuMain4)"
 	export PYENV_ROOT="$HOME/.pyenv"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
-	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	eval "$(rbenv init -)"
-	eval "$(pyenv init -)"
 
 elif [ $HOST = "ubuntuVM" ];then
 	echo "this is path(ubuntuVM)"
