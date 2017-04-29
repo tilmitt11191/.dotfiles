@@ -10,6 +10,8 @@ find ./  -name "*.swp" -print0 | xargs -0 rm
 
 echo "git add *"
 git add *
+echo "git add ."
+git add .
 
 echo "git commit -m $MESSAGE"
 git commit -m "$MESSAGE"
