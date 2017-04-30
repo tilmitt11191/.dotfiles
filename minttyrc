@@ -8,3 +8,5 @@ BellType=0
 WindowShortcuts=no
 ZoomShortcuts=no
 ComposeKey=ctrl
+RightClickAction=paste
+Scrollbar=none
