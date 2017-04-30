@@ -94,9 +94,12 @@ elif [ $HOST = "Gemini" ];then
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is color(PC or mba-win or o-PC)"
+	eval "`dircolors.exe ~/.dir_colors -b`"
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
 	#ZSH_THEME="dieter"
-	export LSCOLORS=exfxcxdxbxegedabagacad
+	#export LSCOLORS=exfxcxdxbxegedabagacad
+	#export LSCOLORS=bxbxcxdxbxegedabagacad
+	#export LSCOLORS=gxfxcxdxbxegedabagacad
 	#PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
@@ -208,7 +211,8 @@ elif [ $HOST = "Gemini" ];then
 	alias vi='vim'
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
-	alias ls='ls -FG --show-control-chars --color=auto'
+	#alias ls='ls -FG --show-control-chars --color=auto'
+	alias ls='ls -FG --show-control-chars --color=always'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
