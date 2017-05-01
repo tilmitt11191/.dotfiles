@@ -33,8 +33,8 @@ elif [ $HOST = "ubuntuMain4" ];then
 	HISTFILE=~/.zsh_history
 	HISTSIZE=1000000
 	SAVEHIST=1000000
-elif [ $HOST = "Gemini" ];then
-	echo "this is config(Gemini)"
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is config(Leo -o Aries -o Cancer -o Gemini)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
@@ -88,8 +88,8 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
-elif [ $HOST = "Gemini" ];then
-	echo "this is color(Gemini)"
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is color(Leo -o Aries -o Cancer -o Gemini)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
@@ -161,8 +161,8 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
 
-elif [ $HOST = "Gemini" ];then
-	echo "this is path(Gemini)"
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
 	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin"
 	eval "$(rbenv init -)"
 
@@ -203,8 +203,8 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-elif [ $HOST = "Gemini" ];then
-	echo "this is alias(Gemini)"
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is alias(Leo -o Aries -o Cancer -o Gemini)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
