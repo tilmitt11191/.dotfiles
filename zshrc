@@ -163,9 +163,11 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 
 elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
 	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
-	export PATH="$PATH:$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	eval "$(rbenv init -)"
-
+	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
 	export PATH="$PATH:$HOME/bin"
