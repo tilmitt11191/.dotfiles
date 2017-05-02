@@ -1,4 +1,6 @@
 
+echo "welcome to $HOST!!"
+
 #### config
 echo "this is config"
 if [ $HOST = "macos.local" -o $HOST = "macos" ];then
