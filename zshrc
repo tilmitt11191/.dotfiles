@@ -90,11 +90,13 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" 
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is color(sakura)"
-	export CLICOLOR=1
+	#export CLICOLOR=1
 	#export LSCOLORS=excxcxdxcxegedabagacgx
 	#export LSCOLORS=Exfxcxdxbxegedabagacad
 	export LSCOLORS=CxGxcxdxCxegedabagacad
-	PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	#export LSCOLORS=exfxcxdxbxegedabagacad
+	#PROMPT='%{${fg[white]}%}$(git_prompt_info)%1~ $%{${reset_color}%} '
+	PS1="%1~ %(!.#.$) "
 else
 	echo "this is color(else)"
 fi
