@@ -1,4 +1,6 @@
 
+echo "welcome to $HOST!!"
+
 #### config
 echo "this is config"
 if [ $HOST = "macos.local" -o $HOST = "macos" ];then
@@ -28,6 +30,13 @@ elif [ $HOST = "ubuntuMain" ];then
 	SAVEHIST=100000
 elif [ $HOST = "ubuntuMain4" ];then
 	echo "this is config(ubuntuMain4)"
+	export ZSH=~/.oh-my-zsh
+	source $ZSH/oh-my-zsh.sh
+	HISTFILE=~/.zsh_history
+	HISTSIZE=1000000
+	SAVEHIST=1000000
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is config(Leo -o Aries -o Cancer -o Gemini)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
 	HISTFILE=~/.zsh_history
@@ -81,11 +90,18 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is color(Leo -o Aries -o Cancer -o Gemini)"
+	export LSCOLORS=exfxcxdxbxegedabagacad
+	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is color(PC or mba-win or o-PC)"
+	eval "`dircolors.exe ~/.dir_colors -b`"
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
 	#ZSH_THEME="dieter"
-	export LSCOLORS=exfxcxdxbxegedabagacad
+	#export LSCOLORS=exfxcxdxbxegedabagacad
+	#export LSCOLORS=bxbxcxdxbxegedabagacad
+	#export LSCOLORS=gxfxcxdxbxegedabagacad
 	#PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
 	PS1="%1~ %(!.#.$) "
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
@@ -121,10 +137,18 @@ elif [ $HOST = "ozu-PC" ];then
 	export PATH="$PATH:~/bin"
 
 elif [ $HOST = "libra" ];then
-	export PATH=" /cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin: /cygdrive/c/ProgramData/Anaconda3/envs/python35: /cygdrive/c/ProgramData/Anaconda3/envs/python35/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
+	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
 
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
+
+elif [ $HOST = "ubuntuMain4" ];then
+	echo "this is path(ubuntuMain4)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
+	eval "$(rbenv init -)"
 
 elif [ $HOST = "ubuntuVM" ];then
 	echo "this is path(ubuntuVM)"
@@ -141,6 +165,13 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
 
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
+	eval "$(rbenv init -)"
+	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
 	export PATH="$PATH:$HOME/bin"
@@ -178,10 +209,16 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+	echo "this is alias(Leo -o Aries -o Cancer -o Gemini)"
+	alias ls='ls -FG --show-control-chars --color=auto'
+	alias ll='ls -lhF'
+	alias mkdir='mkdir -p'
+	alias vi='vim'
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
-	alias ls='ls -FG --show-control-chars --color=auto'
+	#alias ls='ls -FG --show-control-chars --color=auto'
+	alias ls='ls -FG --show-control-chars --color=always'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'

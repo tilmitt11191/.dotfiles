@@ -1,0 +1,20 @@
+
+#!/bin/zsh
+MESSAGE=$1
+if [ -z "$MESSAGE" ];then MESSAGE="$HOST `date`";fi;
+
+find ./  -name "._*" -print0 | xargs -0 git rm
+find ./  -name "._*" -print0 | xargs -0 rm
+find ./  -name "*.swp" -print0 | xargs -0 git rm
+find ./  -name "*.swp" -print0 | xargs -0 rm
+
+echo "git add *"
+git add *
+echo "git add ."
+git add .
+
+echo "git commit -m $MESSAGE"
+git commit -m "$MESSAGE"
+
+git push -u origin master
+exit 0

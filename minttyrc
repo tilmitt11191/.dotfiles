@@ -1,10 +1,12 @@
 BoldAsFont=no
 Columns=90
-Rows=38
+Rows=48
 Font=Ricty Diminished
 FontHeight=14
-Transparency=high
+Transparency=50
 BellType=0
 WindowShortcuts=no
 ZoomShortcuts=no
 ComposeKey=ctrl
+RightClickAction=paste
+Scrollbar=none
