@@ -83,7 +83,7 @@ elseif hostname() == "PC" || hostname() == "mba-win"
 	hi CursorLineNr ctermbg=4 ctermfg=8
 	set cursorline
 	"hi clear CursorLine
-elseif hostname() == "www2271.sakura.ne.jp"
+elseif hostname() == "www2271.sakura.ne.jp" || hostname() == "Gemini"
 	hi Normal ctermfg=252 ctermbg=none
 	hi LineNr ctermbg=none ctermfg=darkcyan
 	hi clear CursorLine
