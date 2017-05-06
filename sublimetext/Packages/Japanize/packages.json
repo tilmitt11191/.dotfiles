@@ -1,0 +1,19 @@
+{
+	"schema_version": "2.0",
+	"packages": [
+		{
+			"name": "Japanize",
+			"details": "https://github.com/kik0220/sublimetext_japanize",
+			"releases": [
+				{
+					"details": "https://github.com/kik0220/sublimetext_japanize/tree/2999",
+					"sublime_text": "<3000"
+				},
+				{
+					"details": "https://github.com/kik0220/sublimetext_japanize/tree/master",
+					"sublime_text": ">=3000"
+				}
+			]
+		}
+	]
+}
