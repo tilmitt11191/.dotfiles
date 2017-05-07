@@ -5,8 +5,12 @@
 	],
 	"installed_packages":
 	[
+		"All Autocomplete",
+		"AutoFileName",
 		"Japanize",
 		"Package Control",
+		"Python Flake8 Lint",
+		"Python PEP8 Autoformat",
 		"SimpleClone"
 	]
 }

@@ -1,0 +1,5 @@
+{
+	"cmd": ["D:/Anaconda3/envs/python35/python", "$file"]
+	, "selector": "source.python"
+	, "file_regex": "file \"(...*?)\", line ([0-9]+)"	
+}

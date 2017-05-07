@@ -1,24 +1,15 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
-	//"font_face": "Ricty Diminished",
+	"color_scheme": "Packages/User/Monokai (Flake8Lint).tmTheme",
+	"draw_white_space": "all",
+	"enable_tab_scrolling": false,
 	"font_face": "Inconsolata-g",
-	//"font_face": "MyricaM M",
-	//"font_face": "Migu 1M",
-	//"font_face": "VLゴシック",
-	//"font_face": "ゆたぽん（COD）K",
-	//"font_face": "Rounded M+",
-	//"font_face": "Source Code Pro",
-	//"font_face": "Ubuntu Mono Regular",
-	//"font_face": "CamingoCode",
-	//"font_face": "Anonymous Pro",
-	//"font_face": "Anonymous Pro Minus",
-	//"font_face": "Consols",
-	//"font_face": "DejaVuSansMono",
-	//"font_face": "DejaVuSerif",
-	//"font_face": "RobotoMono-Regular",
-	"font_size": 13,
-	"font_options": ["directwrite"],
+	"font_options":
+	[
+		"directwrite"
+	],
+	"font_size": 12,
 	"highlight_line": false,
+	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
@@ -32,8 +23,5 @@
 	"show_full_path": true,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false,
-	"draw_white_space": "all",
-	"enable_tab_scrolling": false,
-	"word_wrap": true,
-	"highlight_modified_tabs": true,
+	"word_wrap": true
 }
