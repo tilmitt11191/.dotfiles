@@ -32,7 +32,8 @@
     // - "dot", "circle" or "bookmark" to show marks
     // - "theme-alpha", "theme-bright", "theme-dark", "theme-hard" or "theme-simple" to show icon marks
     // - "" (empty string) to do not show marks
-    "gutter_marks": "theme-simple",
+    //"gutter_marks": "theme-simple",
+    "gutter_marks": "theme-hard",
 
     // report successfull (passed) lint
     "report_on_success": false,
@@ -82,7 +83,7 @@
     // select errors and warnings (e.g. ["E", "W6"])
     "select": [],
     // skip errors and warnings (e.g. ["E303", "E4", "W"])
-    "ignore": ["D206 ", "W191", "E101", "E223", "E224", "E242"],
+    "ignore": ["E402", "D206 ", "W191", "E101", "E223", "E224", "E242"],
 
     // files to ignore, for example: ["*.mako", "test*.py"]
     "ignore_files": []
