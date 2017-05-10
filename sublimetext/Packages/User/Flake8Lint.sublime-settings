@@ -1,6 +1,6 @@
 {
     // run flake8 lint on file saving
-    "lint_on_save": false,
+    "lint_on_save": true,
     // run flake8 lint on file loading
     "lint_on_load": false,
 
@@ -83,7 +83,7 @@
     // select errors and warnings (e.g. ["E", "W6"])
     "select": [],
     // skip errors and warnings (e.g. ["E303", "E4", "W"])
-    "ignore": ["E402", "D206 ", "W191", "E101", "E223", "E224", "E242"],
+    "ignore": ["E402", "D206 ", "W191", "E101", "E223", "E224", "E242", "F821"],
 
     // files to ignore, for example: ["*.mako", "test*.py"]
     "ignore_files": []
