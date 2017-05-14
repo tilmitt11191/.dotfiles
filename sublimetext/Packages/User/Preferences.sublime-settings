@@ -25,5 +25,9 @@
 	"tab_size": 4,
 	"theme": "Asphalt.sublime-theme",
 	"translate_tabs_to_spaces": false,
-	"word_wrap": true
+	"word_wrap": true,
+	"show_encoding": false,
+	"hot_exit": true,
+	"always_prompt_for_file_reload": false,
+
 }
