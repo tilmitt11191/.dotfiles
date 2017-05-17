@@ -218,7 +218,7 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
 	#alias ls='ls -FG --show-control-chars --color=auto'
-	alias ls='ls -FG --show-control-chars --color=always'
+	alias ls='ls -G --show-control-chars --color=always'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
