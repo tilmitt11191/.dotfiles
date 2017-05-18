@@ -138,6 +138,14 @@ elif [ $HOST = "ozu-PC" ];then
 
 elif [ $HOST = "libra" ];then
 	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
+	export PATH="/cygdrive/c/Program\ Files/Docker\ Toolbox":$PATH
+	
+	export DOCKER_HOST=tcp://192.168.99.100:2376
+	export DOCKER_MACHINE_NAME=default
+	export DOCKER_TLS_VERIFY=1
+	#export DOCKER_CERT_PATH=/cygdrive/c/Users/ozu/.docker/machine/machines/default
+	export DOCKER_CERT_PATH=C:\\Users\\ozu\\.docker\\machine\\machines\\default
+	export TERM=xterm
 
 elif [ $HOST = "ubuntu128" ];then
 	export PATH="$PATH:$ZSH:/home/ffffe/bin"
