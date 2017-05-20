@@ -164,7 +164,6 @@ elif [ $HOST = "ubuntuVM" ];then
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	eval "$(rbenv init -)"
-	eval "$(pyenv init -)"
 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
