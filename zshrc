@@ -184,6 +184,19 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+	export TFoS_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark
+	export PYTHONPATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/src
+	export PYTHONPATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6/python/:$PYTHONPATH
+	export PATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/src:${PATH}
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+	export LOG_DIRS=$HOME/program/test/tensorFlow_test/var/log/
+	export HADOOP_HOME=/usr/local/lib/hadoop/hadoop
+	export PATH=$HADOOP_HOME/bin:$SPARK_HOME/bin:$PATH
+	export HADOOP_CONF_DIR=/usr/local/lib/hadoop/hadoop/etc/hadoop
+	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+	export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+	export SPARK_YARN_STAGING_DIR=$SPARK_HOME/log
+
 
 	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
