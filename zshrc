@@ -153,7 +153,6 @@ elif [ $HOST = "ubuntu128" ];then
 elif [ $HOST = "ubuntuMain4" ];then
 	echo "this is path(ubuntuMain4)"
 	export PYENV_ROOT="$HOME/.pyenv"
-	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PATH"
 	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	eval "$(rbenv init -)"
@@ -162,11 +161,24 @@ elif [ $HOST = "ubuntuVM" ];then
 	echo "this is path(ubuntuVM)"
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
-	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
-	eval "$(rbenv init -)"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/tfos/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+		eval "$(rbenv init -)"
 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+	export TFoS_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark
+	export PYTHONPATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/src
+	export PYTHONPATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6/python/:$PYTHONPATH
+	export PATH=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/src:${PATH}
+	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+	export LOG_DIRS=$HOME/program/test/tensorFlow_test/var/log/
+	export HADOOP_HOME=/usr/local/lib/hadoop/hadoop
+	export PATH=$HADOOP_HOME/bin:$SPARK_HOME/bin:$PATH
+	export HADOOP_CONF_DIR=/usr/local/lib/hadoop/hadoop/etc/hadoop
+	export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+	export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+	export SPARK_YARN_STAGING_DIR=$SPARK_HOME/log
 
 elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is path(ubuntu***)"
@@ -178,7 +190,8 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
 	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
 	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/tfos/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	eval "$(rbenv init -)"
 
