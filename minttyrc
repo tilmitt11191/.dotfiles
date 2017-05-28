@@ -10,3 +10,5 @@ ZoomShortcuts=no
 ComposeKey=ctrl
 RightClickAction=paste
 Scrollbar=none
+Locale=ja_JP
+Charset=SJIS
