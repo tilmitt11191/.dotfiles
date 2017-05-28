@@ -129,6 +129,7 @@ elif [ $HOST = "PC" ];then
 	echo "this is path(PC or mba-win or o-PC)"
 	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/d/Anaconda3/envs/python35:/cygdrive/d/Anaconda3/envs/python35/Scripts:/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/eclipse/java/8/bin:$PATH:"
 	export PATH=$PATH:~/bin
+	export LANG=ja_JP.UTF-8
 	export TF_CPP_MIN_LOG_LEVEL=3
 
 elif [ $HOST = "mba-win" ];then
