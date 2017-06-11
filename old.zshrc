@@ -42,7 +42,6 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	HISTFILE=~/.zsh_history
 	HISTSIZE=1000000
 	SAVEHIST=1000000
-	xkbcomp -I~/.xkb ~/.xkb/keymap/my_xkbmap $DISPLAY 2>/dev/null
 elif [ $HOST = "ubuntuVM" ];then
 	echo "this is config(ubuntuVM)"
 	export ZSH=~/.oh-my-zsh
@@ -95,6 +94,7 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	echo "this is color(Leo -o Aries -o Cancer -o Gemini)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
+	#PROMPT='%{${fg[yellow]}%}$(git_prompt_info)%1~ $%{${fg[yellow]}%}%{${reset_color}%} '
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is color(PC or mba-win or o-PC)"
 	eval "`dircolors.exe ~/.dir_colors -b`"
@@ -130,8 +130,6 @@ elif [ $HOST = "PC" ];then
 	echo "this is path(PC or mba-win or o-PC)"
 	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/d/Anaconda3/envs/python35:/cygdrive/d/Anaconda3/envs/python35/Scripts:/usr/local/bin:/usr/bin:/cygdrive/c/Windows/system32:/cygdrive/c/Windows:/cygdrive/c/Windows/System32/Wbem:/cygdrive/c/Windows/System32/WindowsPowerShell/v1.0:/cygdrive/c/Program Files (x86)/EaseUS/Todo Backup/bin/x64:/cygdrive/f/eclipse/java/8/bin:$PATH:"
 	export PATH=$PATH:~/bin
-	export LANG=ja_JP.UTF-8
-	export TF_CPP_MIN_LOG_LEVEL=3
 
 elif [ $HOST = "mba-win" ];then
 	export PATH=$PATH:$HOME/bin:$HOME/bin/cygwin/bin:/cygdrive/f/Dropbox/pc/mba-win/home/bin
@@ -193,8 +191,8 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
 	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
 	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
-	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/tfos/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/tfos/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	eval "$(rbenv init -)"
 
@@ -258,8 +256,6 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-	alias st='subl'
-	alias open='xdg-open'
 elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
 	#alias ls='ls -FG --show-control-chars --color=auto'

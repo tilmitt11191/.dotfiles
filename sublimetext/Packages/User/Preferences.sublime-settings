@@ -9,7 +9,7 @@
 	[
 		"directwrite"
 	],
-	"font_size": 12,
+	"font_size": 11,
 	"highlight_line": false,
 	"highlight_modified_tabs": true,
 	"hot_exit": true,
