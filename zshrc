@@ -13,7 +13,7 @@ if [ $HOST = "macos.local" -o $HOST = "macos" ];then
 	SAVEHIST=100000
 	#setopt hist_ignore_dups     # ignore duplication command history list
 	setopt share_history        # share command history data
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" -o $HOST = "pisces" ];then
 	echo "this is config(PC or mba-win or o-PC or libra)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
@@ -94,7 +94,7 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	echo "this is color(Leo -o Aries -o Cancer -o Gemini)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" -o $HOST = "pisces" ];then
 	echo "this is color(PC or mba-win or o-PC)"
 	eval "`dircolors.exe ~/.dir_colors -b`"
 	#source ~/.colorsets/mintty-colors-solarized/sol.dark
@@ -136,7 +136,8 @@ elif [ $HOST = "mba-win" ];then
 elif [ $HOST = "ozu-PC" ];then
 	export PATH="$PATH:~/bin"
 
-elif [ $HOST = "libra" ];then
+elif [ $HOST = "libra" -o $HOST = "pisces" ];then
+	echo "this is path(libra -o pisces)"
 	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
 	export PATH="/cygdrive/c/Program\ Files/Docker\ Toolbox":$PATH
 	
@@ -231,7 +232,7 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" ];then
+elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" -o $HOST = "pisces" ];then
 	echo "this is alias(PC or mba-win or o-PC)"
 	#alias ls='ls -FG --show-control-chars --color=auto'
 	alias ls='ls -G --show-control-chars --color=always'
