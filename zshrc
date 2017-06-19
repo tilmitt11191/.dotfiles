@@ -138,9 +138,13 @@ elif [ $HOST = "ozu-PC" ];then
 
 elif [ $HOST = "libra" -o $HOST = "pisces" ];then
 	echo "this is path(libra -o pisces)"
-	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph:/cygdrive/c/Users/ozu/AppData/Local/conda/conda/envs/paper_graph/Scripts:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
+	export PATH="/cygdrive/c/Program\ Files/NVIDIA\ GPU\ Computing\ Toolkit/CUDA/v8.0/cuda/bin:/home/ozu/bin:/usr/local/bin:/usr/bin:/usr/sbin:$PATH"
 	export PATH="/cygdrive/c/Program\ Files/Docker\ Toolbox":$PATH
-	
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="/cygdrive/c/Users/ozu/Anaconda3/envs/paper_graph:/cygdrive/c/Users/ozu/Anaconda3/envs/paper_graph/Scripts:$PATH"
+	#export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+
 	export DOCKER_HOST=tcp://192.168.99.100:2376
 	export DOCKER_MACHINE_NAME=default
 	export DOCKER_TLS_VERIFY=1
