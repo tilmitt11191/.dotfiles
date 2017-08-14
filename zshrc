@@ -35,7 +35,7 @@ elif [ $HOST = "ubuntuMain4" ];then
 	HISTFILE=~/.zsh_history
 	HISTSIZE=1000000
 	SAVEHIST=1000000
-elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o $HOST = "Scorpio" ];then
 	echo "this is config(Leo -o Aries -o Cancer -o Gemini)"
 	export ZSH=~/.oh-my-zsh
 	source $ZSH/oh-my-zsh.sh
@@ -90,7 +90,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	echo "this is color(ubuntu***)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
-elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o $HOST = "Scorpio" ];then
 	echo "this is color(Leo -o Aries -o Cancer -o Gemini)"
 	export LSCOLORS=exfxcxdxbxegedabagacad
 	PS1="%1~ %(!.#.$) "
@@ -181,7 +181,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	eval "$(rbenv init -)"
 	##http://www.virment.com/setup-rails-ubuntu/
 
-elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o $HOST = "Scorpio" ];then
 	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
 	export PYENV_ROOT="$HOME/.pyenv"
 	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
@@ -191,7 +191,6 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export PATH=$SPARK_HOME/bin:$PATH
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-
 	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
@@ -230,7 +229,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" ];then
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o "Scorpio" ];then
 	echo "this is alias(Leo -o Aries -o Cancer -o Gemini)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
