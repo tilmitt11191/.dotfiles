@@ -191,6 +191,9 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export PATH=$SPARK_HOME/bin:$PATH
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+
+	export PATH=/usr/local/lib/torch/bin:$PATH;
+	export LD_LIBRARY_PATH=/usr/local/lib/torch/lib:$LD_LIBRARY_PATH;
 	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
