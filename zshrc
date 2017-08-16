@@ -229,7 +229,7 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
-elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o "Scorpio" ];then
+elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o $HOST = "Scorpio" ];then
 	echo "this is alias(Leo -o Aries -o Cancer -o Gemini)"
 	alias ls='ls -FG --show-control-chars --color=auto'
 	alias ll='ls -lhF'
@@ -258,6 +258,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" 
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is alias(sakura)"
 	#alias ls='ls -FG --show-control-chars --color=auto'
+	alias ls='ls -FG'
 	alias ll='ls -lhF'
 	alias mkdir='mkdir -p'
 	alias vi='vim'
