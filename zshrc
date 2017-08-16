@@ -192,8 +192,8 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	export PATH=$SPARK_HOME/bin:$PATH
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
-	export PATH=/usr/local/lib/torch/bin:$PATH;
-	export LD_LIBRARY_PATH=/usr/local/lib/torch/lib:$LD_LIBRARY_PATH;
+	export PATH=/usr/local/lib/torch/install/bin:$PATH;
+	export LD_LIBRARY_PATH=/usr/local/lib/torch/install/lib:$LD_LIBRARY_PATH;
 	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
@@ -340,3 +340,6 @@ fi
 #PERL_LOCAL_LIB_ROOT="/home/tilmi_000/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 #PERL_MB_OPT="--install_base \"/home/tilmi_000/perl5\""; export PERL_MB_OPT;
 #PERL_MM_OPT="INSTALL_BASE=/home/tilmi_000/perl5"; export PERL_MM_OPT;
+
+
+. /usr/local/lib/torch/install/bin/torch-activate
