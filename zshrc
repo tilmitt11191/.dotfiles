@@ -182,11 +182,13 @@ elif [ $(echo $HOST | grep -e "ubuntu") ];then
 	##http://www.virment.com/setup-rails-ubuntu/
 
 elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" -o $HOST = "Scorpio" ];then
-	echo "this is path(Leo -o Aries -o Cancer -o Gemini)"
+	echo "this is path(Leo -o Aries -o Cancer -o Gemini -o Scorpio)"
 	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/paper_graph/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
+	export PATH="$PYENV_ROOT/versions/anaconda3-4.3.0/envs/tf1.1/bin:$PYENV_ROOT/versions/anaconda3-4.3.0/bin/:$PYENV_ROOT/bin:$PATH"
 	export PATH="$HOME/bin:$HOME/.rbenv/bin:$HOME/.local/bin:$PATH"
 	eval "$(rbenv init -)"
+
+	export PATH=/usr/local/cuda/bin:$PATH
 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export PATH=$SPARK_HOME/bin:$PATH
