@@ -189,13 +189,14 @@ elif [ $HOST = "Leo" -o $HOST = "Aries" -o $HOST = "Cancer" -o $HOST = "Gemini" 
 	eval "$(rbenv init -)"
 
 	export PATH=/usr/local/cuda/bin:$PATH
+	export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 	export SPARK_HOME=/usr/local/lib/tensorflowonspark/TensorFlowOnSpark/spark-1.6.0-bin-hadoop2.6
 	export PATH=$SPARK_HOME/bin:$PATH
 	export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
-	export PATH=/usr/local/lib/torch/install/bin:$PATH;
-	export LD_LIBRARY_PATH=/usr/local/lib/torch/install/lib:$LD_LIBRARY_PATH;
+	#export PATH=/usr/local/lib/torch/install/bin:$PATH
+	#export LD_LIBRARY_PATH=/usr/local/lib/torch/install/lib:$LD_LIBRARY_PATH
 	
 elif [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "this is path(sakura)"
@@ -344,4 +345,3 @@ fi
 #PERL_MM_OPT="INSTALL_BASE=/home/tilmi_000/perl5"; export PERL_MM_OPT;
 
 
-. /usr/local/lib/torch/install/bin/torch-activate
