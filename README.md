@@ -1,2 +1,4 @@
 # dotfiles
-D:\cygwin\bin\mintty.exe -c "tmux" -i /Cygwin-Terminal.ico -
+C:\cygwin64\bin\mintty.exe -c "tmux" -i /Cygwin-Terminal.ico -
+
+

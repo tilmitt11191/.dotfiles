@@ -1,1 +1,1 @@
-{"sublime_text": ">=3000", "platforms": ["*"], "version": "2014.10.24.07.55.04", "url": "https://github.com/kik0220/sublimetext_japanize", "description": "Japanese menu for Sublime Text 2/3", "dependencies": []}
+{"dependencies": [], "description": "Japanese menu for Sublime Text 2/3", "version": "2018.02.25.05.38.43", "platforms": ["*"], "url": "https://github.com/kik0220/sublimetext_japanize", "sublime_text": ">=3000"}
