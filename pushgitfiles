@@ -1,4 +1,4 @@
-
+#!/usr/bin/env zsh
 #!/bin/zsh
 MESSAGE=$1
 if [ -z "$MESSAGE" ];then MESSAGE="$HOST `date`";fi;
