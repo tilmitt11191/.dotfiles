@@ -9,7 +9,6 @@ echo   ca-certificates
 echo   gnup
 echo   openssl-perl
 pause
-dir ..\cygwin\
 call ..\cygwin\setup-x86_64.exe
-echo Cygwin install finished.
+echo Cygwin install finished. Launch Cygwin
 pause
