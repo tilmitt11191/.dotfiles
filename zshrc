@@ -251,6 +251,7 @@ elif [ $HOST = "PC" -o $HOST = "mba-win" -o $HOST = "ozu-PC" -o $HOST = "libra" 
 	alias vim='/usr/bin/vim'
 	alias git='git.exe'
 	alias hidemaru='/cygdrive/c/Program\ Files\ \(x86\)/Hidemaru/Hidemaru.exe'
+	alias st='/cygdrive/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe'
 	alias cygsetup='/cygdrive/f/bin/cygwin/setup-x86_64.exe'
 	export LANG=ja_JP.UTF-8
 # cd した先のディレクトリをディレクトリスタックに追加する
@@ -273,6 +274,9 @@ else
 fi
 
 ##etc
+if [ $HOST = "PC" ];then
+	$HOME/bin/fatty
+fi
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"
 

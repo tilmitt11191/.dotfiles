@@ -1,0 +1,75 @@
+screening_pcaps.rb
+- pcap ファイル群から指定のルールでデータを切り出します
+- 指定できるルール
+  (1) 任意のIPアドレス(またはネットワークアドレス)を含む
+    通信フロー
+    - 複数記述の場合は OR 条件として扱います
+    - ひとつも指定しない場合はIPアドレスではフィルタし
+      ません
+    - SRCやDSTの別はありません。したがって、たとえば、
+      10.0.0.0/8 と指定した場合、上下方向いずれかの IP
+      アドレスに 10.0.0.0/8 にマッチするものがあれば切
+      り出し対象となります
+  (2) 任意のTCP/UDPポートを含む通信フロー
+    - 複数記述の場合は OR 条件として扱います
+    - ひとつも指定しない場合はポート番号ではフィルタし
+      ません
+    - SRCやDSTの別はありません。したがって、たとえば、
+      80番ポートを指定した場合、上下方向いずれかの ポー
+      ト番号で 80番にマッチするものがあれば切り出し対象
+      となります
+  (3) TCPまたはUDPを含む通信フロー
+    - TCP または UDP のフローを指定できます
+    - TCP と UDP を両指定した場合は TCP/UDP のみを抽出
+      対象とします
+    - 指定がない場合はフィルタせず、全L4プロトコルが抽
+      出対象となります
+  - 上記のフィルタは AND 条件でマッチします
+- 例
+  (1) 10.0.0.10,74.125.235.0/24
+  (2) 80,443
+  (3) tcp
+  このように指定した場合、
+  (1) あるユーザ(10.0.0.10)と 74.125.235.0/24 とやりとり
+  (2) Port 80 OR 443
+  (3) TCP
+  これらの条件を AND で接続したルールで抽出されます。
+
+- 抽出結果は output_実行時刻 というディレクトリに格納され
+  ます
+
+How to use
+- 実行環境に必要なもの
+  - Linux kernel 2.6以降 / FreeBSD (R610上では動いた)
+  - ruby 1.9
+  - tcpdump
+  - mergecap (必要に応じて)
+- 設定
+  プリアンブルを設定してください
+  CENV = '/usr/bin/env'
+  TCPDUMP = "#{CENV} tcpdump"
+  MERGECAP = "#{CENV} mergecap"
+  MKDIR = "#{CENV} mkdir"
+- コマンド
+  screening_pcaps [options] pcapfiles
+      -d, --output-dir output_dir      output directory
+      -p, --ports ports                screen pcap(s) with the ports
+      -i, --ip-addresses ip_addresses  screen pcap(s) with the ip-addresses
+      -t, --tcpudp TCP/UDP             screen pcap(s) with TCP/UDP
+      -V, --vlan-disable               VLAN disable
+      -m, --mergepcap-enable           enable pcap-merge
+  -d 出力先ディレクトリを指定できます
+  -p ポート番号を指定します。カンマ区切りで複数指定可能
+  -i IPアドレスまたはネットワークアドレスを指定できます。
+     カンマ区切りで複数指定できます
+  -t TCP or UDP を指定できます。カンマで tcp,udp とも指定
+     できます
+  -V 非VLAN環境で指定してください
+  -m mergecap を使って、抽出した pcap ファイルをまとめま
+     す
+- その他
+  - システム関数使っててダサいとか思った人は書き直してほ
+    しい
+
+【履歴】
+2014/1/14 登録

@@ -1,0 +1,103 @@
+create_db.rb
+def_sql_tbl_fmt.rb
+
+【概要】
+  - analyze_pcap で出力した CSV データを MySQL に登録するためのスクリプト
+  - 取り込みを想定した CSV 種類は下記のとおり
+    - tcp
+    - udp
+    - volume
+    - gtp ( --gtp-all の結果含む )
+  - create_{tcp,udp,vol}.rb との差分は?
+    - 単一スクリプトで tcp,udp,vol のほか gtp の CSV データ取り込みできる
+      ようにした。
+    - tcp だけ DB 登録や tcp と gtp だけ登録といったこともOK
+
+【基本的な使い方】
+  - 動作環境
+    - Linux 2.6系/FreeBSD 8.2 + ruby 1.9 + mysql2 (+ progressbar)
+  - 事前準備としてプリアンブルで MySQL サーバ定義
+----
+SQL_SERV  = 'localhost'
+SQL_USER  = 'testuser'
+SQL_PASS  = 'testpass'
+SQL_DB    = 'testdb'
+----
+  - progressbar を利用するときは、gem 等でインストール未インストールある
+    いは -P オプションで progressbarを使わない
+  - progressbar 利用時は wc コマンドが必要(PATH が通っていること)
+  - tcp,udp,volume,gtp いずれかの CSV をそれぞれ -t,-u,-v,-g オプション
+    でひとつ以上指定すること
+    % ./create_rb.rb -t tcp.csv -u udp.csv -v volume.csv -g gtp.csv
+  - tcp,udp,volume,gtp の各MySQL テーブル名は CSV ファイル名(basename)で
+    登録される。ただし、ダッシュ '-' は MySQL テーブル名で利用できない
+    ため、アンダースコア '_' に変更する
+  - tcp,udp,volume,gtp の MySQL テーブル名はそれぞれ -T,-U,-V,-G でユー
+    ザが指定可能
+
+【オプション】
+Usage: create_db [options]
+    -s, --mysql-server MySQL Server  MySQL Server
+        # => MySQL サーバアドレス指定
+    -r, --mysql-user MySQL User      MySQL User
+        # => MySQL ユーザ名指定
+    -p MySQL DB Password,            MySQL User Password
+        --mysql-db-password
+        # => MySQL ユーザパスワード指定
+    -d, --mysql-database MySQL DB    MySQL Database
+        # => MySQL DB 名指定
+    -T, --tcp-table TCP table name   TCP table name
+        # => MySQL テーブル名指定(tcp csv 用)
+    -U, --udp-table UDP table name   UDP table name
+        # => MySQL テーブル名指定(udp csv 用)
+    -V VOLUME table name,            VOLUME table name
+        --volume-table
+        # => MySQL テーブル名指定(volume csv 用)
+    -G, --gtp-table GTP table name   GTP table name
+        # => MySQL テーブル名指定(gtp csv 用)
+    -t, --tcp-csvfile TCP csvfile    TCP table name
+        # => tcp csv 指定(analyze_pcap による)
+    -u, --udp-csvfile UDP csvfile    UDP table name
+        # => udp csv 指定(analyze_pcap による)
+    -v VOLUME csvfile,               VOLUME table name
+        --volume-csvfile
+        # => volume csv 指定(analyze_pcap による)
+    -g, --gtp-csvfile GTP csvfile    GTP table name
+        # => gtp csv 指定(analyze_pcap による)
+    -e, --error-log error log file   error log file
+        # => 指定した場所・ファイルに対象テーブル名を
+        #    追記したファイルを生成し、insert 失敗した
+        #    コマンドを出力する
+    -P, --progressbar-disable
+        # => progressbar を無効化(nohup & のお供に)
+
+【注意】
+  - analyze_pcap の出力仕様が変わった場合
+    - 単純に、field が増えた場合であっても、エラー出力はないので注意
+      すること。本スクリプトでは、定義された field に対応するデータが
+      あれば MySQL insert する仕様なので、insert そのものに失敗(定義
+      された field に、想定外の入力がなされた場合)しない限りエラーを
+      吐かない 
+    - 上記に対応するには def_sql_tbl_fmt.rb に MySQL の型を増やす。
+      対応した場合は commit お願いします
+  - MySQL 各 field の型定義
+    - def_sql_tbl_fmt.rb に定義された MySQL の field 型が間違っている
+      または型長(特に String 型の varchar 長)が間違っている(足りない)
+      可能性あり。適宜修正をお願いします。
+  - 時刻変換
+    - 最新の MySQL を除き、MySQL の時刻型がマイクロ秒に未対応のため、
+      UNIX 時刻を 浮動少数型(double)で定義している。
+    - analyze_pcap では tcp_begin 等の時刻を ISO8601(.6)で出力してお
+      り浮動少数型にキャストするために、時刻 field かどうかの判定を
+      している
+    - 本判定は、単純に 'begin' ないし 'end' を含む field 名としており
+      曖昧である。おかしい場合はご連絡を
+
+【履歴】
+  - 2014/04/23 analyze_pcap.rb の出力フォーマットの変更及び追加に
+    伴い、本スクリプトを修正
+    MySQL型定義において、キャラクタ長が短いものがいくつか発見され
+    たため、キャラクタ長を延伸
+  - 2014/01/24 analyze_pcap.rb の --gtp-all 時のいくつかのフィールド
+    の再定義に応じて本スクリプトも修正
+  - 2014/01/20 登録

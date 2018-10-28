@@ -1,0 +1,25 @@
+
+【extract_gps.rb README】
+
+【概要】
+
+ GPS情報を複数含み、変化のあるデータのみ抽出する
+
+ 抽出したデータからKMLファイルを生成し、Google Earth上で表示することも可能
+※ 暫定的に、15個以上のGPS情報を含むデータのみKMLに出力する
+
+
+【使用方法】
+
+ extract_gps.rbを実行する
+ 
+Usage: extract_gps [options]
+    -k, --kml                        Generate KML File
+
+ オプション指定がない場合は,抽出動作となる
+
+[GPS情報抽出]
+ # ./extract_gps.rb test.csv
+[KMLファイル生成]
+ # ./extract_gps.rb -k extGPS.csv
+

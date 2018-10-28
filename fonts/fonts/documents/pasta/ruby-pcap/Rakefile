@@ -1,0 +1,24 @@
+task :default => [:yard]
+begin
+  require 'yard'
+  require File.dirname(__FILE__) + '/yard_extensions'
+  YARD::Rake::YardocTask.new do |t|
+    t.files   = ['ext/*.c','ext/lib/*.rb']
+  end
+rescue LoadError
+  puts "YARD not available. Install it with: sudo gem install yard"
+end
+begin
+  require "rake/extensiontask"
+  Rake::ExtensionTask.new "lib/pcap" do |ext|
+    ext.lib_dir = "lib/pcap"
+  end
+rescue LoadError
+  puts "rake/extensiontask not available. Install it with: sudo gem install rake-compiler"
+end
+begin
+  require "bundler/gem_tasks"
+  Bundler::GemHelper.install_tasks
+rescue LoadError
+  puts "bundler not available. Install it with: sudo gem install bundler"
+end

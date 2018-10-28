@@ -1,0 +1,1068 @@
+/*
+ * 
+ *  Pcap.c
+ *
+ *  Copyright (C) 1998-2000  Masaki Fukushima
+ */
+
+#include "ruby_pcap.h"
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+#define DEFAULT_DATALINK        DLT_EN10MB
+#define DEFAULT_SNAPLEN 68
+#define DEFAULT_PROMISC 1
+#define DEFAULT_TO_MS   1000
+
+#ifdef PCAP_DONT_TRAP
+#define MAYBE_TRAP_BEG do {} while (0)
+#define MAYBE_TRAP_END do {} while (0)
+#else
+#define MAYBE_TRAP_BEG do {struct rb_blocking_region_buffer *__region = rb_thread_blocking_region_begin();
+#define MAYBE_TRAP_END rb_thread_blocking_region_end(__region);} while (0)
+#endif
+
+static char pcap_errbuf[PCAP_ERRBUF_SIZE];
+
+VALUE mPcap, rbpcap_convert = Qnil;
+VALUE ePcapError;
+VALUE eTruncatedPacket;
+VALUE cFilter;
+static VALUE cCapture;
+static VALUE cPcapStat;
+static VALUE cDumper;
+
+struct filter_object {
+    char *expr;
+    struct bpf_program program;
+    int datalink;
+    int snaplen;
+    VALUE param;
+    VALUE optimize;
+    VALUE netmask;
+};
+
+#define GetFilter(obj, filter) \
+    Data_Get_Struct(obj, struct filter_object, filter)
+
+
+/* Return a name of network device. */
+static VALUE
+pcap_s_lookupdev(self)
+    VALUE self;
+{
+    char *dev;
+
+    dev = pcap_lookupdev(pcap_errbuf);
+    if (dev == NULL) {
+        rb_raise(ePcapError, "%s", pcap_errbuf);
+    }
+    return rb_str_new2(dev);
+}
+
+static VALUE
+pcap_s_findalldevs(self)
+    VALUE self;
+{
+    pcap_if_t *alldevsp;
+    VALUE return_ary;
+    char pcap_errbuf[PCAP_ERRBUF_SIZE];
+
+    return_ary = rb_ary_new();
+
+    pcap_findalldevs(&alldevsp, pcap_errbuf);
+
+    if (alldevsp == NULL) // List is empty, probably an error
+           rb_raise(ePcapError, "%s", pcap_errbuf);
+
+    for (; alldevsp->next != NULL; alldevsp = alldevsp->next)
+            rb_ary_push(return_ary, rb_str_new2(alldevsp->name));
+
+    pcap_freealldevs(alldevsp);
+
+    return return_ary;
+}
+
+/* Return a two-element array [net, mask]. net is network number as {IPAddr}. mask is netmask as Return data part as {http://www.ruby-doc.org/core-1.9.3/Integer.html Integer}. Argument device is network device name.
+ *
+ * @param [String] device device name
+ */
+static VALUE
+pcap_s_lookupnet(self, dev)
+    VALUE self;
+    VALUE dev;
+{
+    bpf_u_int32 net, mask, m;
+    struct in_addr addr;
+
+    Check_Type(dev, T_STRING);
+    if (pcap_lookupnet(StringValuePtr(dev), &net, &mask, pcap_errbuf) == -1) {
+        rb_raise(ePcapError, "%s", pcap_errbuf);
+    }
+
+    addr.s_addr = net;
+    m = ntohl(mask);
+    return rb_ary_new3(2, new_ipaddr(&addr), UINT32_2_NUM(m));
+}
+
+/* Return the behavior of classes under module Pcap when they convert IP address or other numbers to string. Value true means that the numbers are converted to their symbolic name. */
+static VALUE
+pcap_s_convert(self)
+    VALUE self;
+{
+    return rbpcap_convert;
+}
+
+/* Set the behavior of classes under module Pcap when they convert IP address or other numbers to string. Value true means that the numbers are converted to their symbolic name. */
+static VALUE
+pcap_s_convert_set(self, val)
+    VALUE self;
+{
+    rbpcap_convert = val;
+    return Qnil;
+}
+
+/*
+ * Capture object
+ */
+
+struct capture_object {
+    pcap_t      *pcap;
+    bpf_u_int32 netmask;
+    int         dl_type;        /* data-link type (DLT_*)               */
+};
+
+static void
+closed_capture()
+{
+    rb_raise(rb_eRuntimeError, "device is already closed");
+}
+
+#define GetCapture(obj, cap) {\
+    Data_Get_Struct(obj, struct capture_object, cap);\
+    if (cap->pcap == NULL) closed_capture();\
+}
+
+/* called from GC */
+static void
+free_capture(cap)
+     struct capture_object *cap;
+{
+    DEBUG_PRINT("free_capture");
+    if (cap->pcap != NULL) {
+        DEBUG_PRINT("closing capture");
+        if(pcap_fileno(cap->pcap) > -1)
+            rb_thread_fd_close(pcap_fileno(cap->pcap));
+        pcap_close(cap->pcap);
+        cap->pcap = NULL;
+    }
+    free(cap);
+}
+
+/*
+ * Open specified device and return Capture object. Default value for snaplen, promisc and to_ms are 68 octets, true and 1000 milliseconds.
+ *
+ * @param [String[,Integer[,Bool[,Integer]]]] device[,snaplen[,promisc[,to_ms]]]] open device
+ * @return [Pcap] Capture object
+ */
+static VALUE
+capture_open_live(argc, argv, class)
+     int argc;
+     VALUE *argv;
+     VALUE class;
+{
+    VALUE v_device, v_snaplen, v_promisc, v_to_ms;
+    char *device;
+    int snaplen, promisc, to_ms;
+    int rs;
+    VALUE self;
+    struct capture_object *cap;
+    pcap_t *pcap;
+    bpf_u_int32 net, netmask;
+
+    DEBUG_PRINT("capture_open_live");
+
+    /* scan arg */
+    rs = rb_scan_args(argc, argv, "13", &v_device, &v_snaplen,
+                      &v_promisc, &v_to_ms);
+
+    /* device */
+    SafeStringValue(v_device);
+    device = RSTRING_PTR(v_device);
+    /* snaplen */
+    if (rs >= 2) {
+        Check_Type(v_snaplen, T_FIXNUM);
+        snaplen = FIX2INT(v_snaplen);
+    } else {
+        snaplen = DEFAULT_SNAPLEN;
+    }
+    if (snaplen <  0)
+        rb_raise(rb_eArgError, "invalid snaplen");
+    /* promisc */
+    if (rs >= 3) {
+        promisc = RTEST(v_promisc);
+    } else {
+        promisc = DEFAULT_PROMISC;
+    }
+    /* to_ms */
+    if (rs >= 4) {
+        Check_Type(v_to_ms, T_FIXNUM);
+        to_ms = FIX2INT(v_to_ms);
+    } else
+        to_ms = DEFAULT_TO_MS;
+
+    /* open */
+    pcap = pcap_open_live(device, snaplen, promisc, to_ms, pcap_errbuf);
+    if (pcap == NULL) {
+        rb_raise(ePcapError, "%s", pcap_errbuf);
+    }
+    if (pcap_lookupnet(device, &net, &netmask, pcap_errbuf) == -1) {
+        netmask = 0;
+        rb_warning("cannot lookup net: %s\n", pcap_errbuf);
+    }
+
+    /* setup instance */
+    self = Data_Make_Struct(class, struct capture_object,
+                            0, free_capture, cap);
+    cap->pcap = pcap;
+    cap->netmask = netmask;
+    cap->dl_type = pcap_datalink(pcap);
+
+    return self;
+}
+
+/*
+ * Open filename and return Capture object. 
+ *
+ * @param [String] filename open filename
+ * @return [Pcap] Capture object
+ */
+static VALUE
+capture_open_offline(class, fname)
+     VALUE class;
+     VALUE fname;
+{
+    VALUE self;
+    struct capture_object *cap;
+    pcap_t *pcap;
+
+    DEBUG_PRINT("capture_open_offline");
+
+    /* open offline */
+    SafeStringValue(fname);
+    pcap = pcap_open_offline(RSTRING_PTR(fname), pcap_errbuf);
+    if (pcap == NULL) {
+        rb_raise(ePcapError, "%s", pcap_errbuf);
+    }
+
+    /* setup instance */
+    self = Data_Make_Struct(class, struct capture_object,
+                            0, free_capture, cap);
+    cap->pcap = pcap;
+    cap->netmask = 0;
+    cap->dl_type = pcap_datalink(pcap);
+
+    return self;
+}
+
+/*
+ * Open fake Capture object. Default value for linktype and snaplen are {DLT_EN10MB} and 68 octets. 
+ *
+ * @param [[Integer[,Integer]]] [linktype[,snaplen]] linktype and snaplen
+ * @return [Pcap] Capture object
+ */
+static VALUE
+capture_open_dead(argc, argv, class)
+     int argc;
+     VALUE *argv;
+     VALUE class;
+{
+    VALUE self;
+    struct capture_object *cap;
+    pcap_t *pcap;
+    VALUE v_linktype, v_snaplen;
+    int linktype, snaplen;
+    int rs;
+
+    DEBUG_PRINT("capture_open_dead");
+
+    /* scan arg */
+    rs = rb_scan_args(argc, argv, "02", &v_linktype, &v_snaplen);
+    if (rs >= 1) {
+      Check_Type(v_linktype, T_FIXNUM);
+      linktype = FIX2INT(v_linktype);
+    } else {
+      linktype = DEFAULT_DATALINK;
+    }
+    if (rs == 2) {
+      Check_Type(v_snaplen, T_FIXNUM);
+      snaplen = FIX2INT(v_snaplen);
+    } else {
+      snaplen = DEFAULT_SNAPLEN;
+    }
+
+    pcap = pcap_open_dead(linktype, snaplen);
+
+    if (pcap == NULL) {
+      rb_raise(ePcapError, "Error calling pcap_open_dead");
+    }
+
+    /* setup instance */
+    self = Data_Make_Struct(class, struct capture_object,
+                            0, free_capture, cap);
+    cap->pcap = pcap;
+    cap->netmask = 0;
+    cap->dl_type = pcap_datalink(pcap);
+
+    return self;
+}
+
+/*
+ * Close Capture object. 
+ * 
+ * @return [nil]
+ */
+static VALUE
+capture_close(self)
+     VALUE self;
+{
+    struct capture_object *cap;
+
+    DEBUG_PRINT("capture_close");
+    GetCapture(self, cap);
+
+    if(pcap_fileno(cap->pcap) > -1)
+        rb_thread_fd_close(pcap_fileno(cap->pcap));
+    pcap_close(cap->pcap);
+    cap->pcap = NULL;
+    return Qnil;
+}
+
+static void
+handler(cap, pkthdr, data)
+     struct capture_object *cap;
+     const struct pcap_pkthdr *pkthdr;
+     const u_char *data;
+{
+    rb_yield(new_packet(data, pkthdr, cap->dl_type));
+}
+
+/*
+ * Iterate over each packet. The argument given to the block is an instance of {Packet} or its sub-class.
+ *
+ * count specifies the maximum number of packets to process. a count of -1 processes all the packets received in one buffer. a count of 0 processes all packets until an error occurs, EOF is reached, or the read times out. Default of count is -1. 
+ *
+ * @return [Integer] packet number
+ * @raise [PcapError] pcap_dispatch failure
+ */
+static VALUE
+capture_dispatch(argc, argv, self)
+     int argc;
+     VALUE *argv;
+     VALUE self;
+{
+    VALUE v_cnt;
+    int cnt;
+    struct capture_object *cap;
+    int ret;
+
+    DEBUG_PRINT("capture_dispatch");
+    GetCapture(self, cap);
+
+    /* scan arg */
+    if (rb_scan_args(argc, argv, "01", &v_cnt) >= 1) {
+        FIXNUM_P(v_cnt);
+        cnt = FIX2INT(v_cnt);
+    } else {
+        cnt = -1;
+    }
+
+    MAYBE_TRAP_BEG;
+    ret = pcap_dispatch(cap->pcap, cnt, handler, (u_char *)cap);
+    MAYBE_TRAP_END;
+    if (ret == -1) {
+        rb_raise(ePcapError, "dispatch: %s", pcap_geterr(cap->pcap));
+    }
+
+    return INT2FIX(ret);
+}
+
+static VALUE
+capture_fh(argc, argv, self)
+     int argc;
+     VALUE *argv;
+     VALUE self;
+{
+    VALUE v_cnt;
+    int cnt;
+    struct capture_object *cap;
+    int ret;
+
+    DEBUG_PRINT("capture_fh");
+    GetCapture(self, cap);
+
+    return rb_funcall(rb_path2class("IO"), rb_intern("new"), 1, INT2FIX(pcap_fileno(cap->pcap)));
+}
+
+/*
+ * Iterate over each packet. The argument given to the block is an instance of {Packet} or its sub-class.
+ *
+ * count specifies the maximum number of packets to process. A negative count processes packets forever or until EOF is reached. Default of count is -1. 
+ *
+ * @param [[Integer]] [count] maximum number of packets
+ * @yield [packet] Packet object
+ * @return [Intger] if capture offline, returns 0 if cnt is exhausted, -1 if an error occurs, or -2 if the loop terminated due to a call to pcap_breakloop() before any packets were processed.
+ * @return [Intger] if capture live, returns 0 if success. -1 if an error occurs.
+ */
+static VALUE
+capture_loop(argc, argv, self)
+     int argc;
+     VALUE *argv;
+     VALUE self;
+{
+    VALUE v_cnt;
+    int cnt;
+    struct capture_object *cap;
+    int ret;
+
+    DEBUG_PRINT("capture_loop");
+    GetCapture(self, cap);
+
+    /* scan arg */
+    if (rb_scan_args(argc, argv, "01", &v_cnt) >= 1) {
+        FIXNUM_P(v_cnt);
+        cnt = FIX2INT(v_cnt);
+    } else {
+        cnt = -1;
+    }
+
+    if (pcap_file(cap->pcap) != NULL) {
+        MAYBE_TRAP_BEG;
+        ret = pcap_loop(cap->pcap, cnt, handler, (u_char *)cap);
+        MAYBE_TRAP_END;
+    }
+    else {
+        int fd = pcap_fileno(cap->pcap);
+        fd_set rset;
+        struct timeval tm;
+
+        FD_ZERO(&rset);
+        tm.tv_sec = 0;
+        tm.tv_usec = 0;
+        for (;;) {
+            do {
+                FD_SET(fd, &rset);
+                if (select(fd+1, &rset, NULL, NULL, &tm) == 0) {
+                    rb_thread_wait_fd(fd);
+                }
+                MAYBE_TRAP_BEG;
+                ret = pcap_dispatch(cap->pcap, 1, handler, (u_char *)cap);
+                MAYBE_TRAP_END;
+            } while (ret == 0);
+
+            if (ret <= 0)
+                break;
+            if (cnt > 0) {
+                cnt -= ret;
+                if (cnt <= 0)
+                    break;
+            }
+        }
+    }
+
+    return INT2FIX(ret);
+}
+
+/*
+ * Specify filter as packet filter. filter can be a string or a {Filter} object. optimize controls whether optimization is performed. Default of optimize is true. 
+ *
+ * @param [String[,Bool]] filter[.optimize] packet filter
+ * @return [nil] 
+ *
+ */
+static VALUE
+capture_setfilter(argc, argv, self)
+     int argc;
+     VALUE *argv;
+     VALUE self;
+{
+    struct capture_object *cap;
+    VALUE vfilter, optimize;
+    char *filter;
+    int opt;
+    struct bpf_program program;
+
+    DEBUG_PRINT("capture_setfilter");
+    GetCapture(self, cap);
+
+    /* scan arg */
+    if (rb_scan_args(argc, argv, "11", &vfilter, &optimize) == 1) {
+        optimize = Qtrue;
+    }
+
+    /* check arg */
+    if (IsKindOf(vfilter, cFilter)) {
+        struct filter_object *f;
+        GetFilter(vfilter, f);
+        filter = f->expr;
+    } else {
+        Check_Type(vfilter, T_STRING);
+        filter = RSTRING_PTR(vfilter);
+    }
+    opt = RTEST(optimize);
+
+    /* operation */
+    if (pcap_compile(cap->pcap, &program, filter,
+                     opt, cap->netmask) < 0)
+        rb_raise(ePcapError, "setfilter: %s", pcap_geterr(cap->pcap));
+    if (pcap_setfilter(cap->pcap, &program) < 0)
+        rb_raise(ePcapError, "setfilter: %s", pcap_geterr(cap->pcap));
+
+    return Qnil;
+}
+
+/*
+ * Return an integer representing data-link type. (e.g. {DLT_EN10MB}) 
+ *
+ * @return [Integer] datalink
+ */
+static VALUE
+capture_datalink(self)
+     VALUE self;
+{
+    struct capture_object *cap;
+
+    DEBUG_PRINT("capture_datalink");
+    GetCapture(self, cap);
+
+    return INT2NUM(pcap_datalink(cap->pcap));
+}
+
+/*
+ * Return the snapshot length. 
+ * @return [Integer] snapshot length
+ */
+static VALUE
+capture_snapshot(self)
+     VALUE self;
+{
+    struct capture_object *cap;
+
+    DEBUG_PRINT("capture_snapshot");
+    GetCapture(self, cap);
+
+    return INT2NUM(pcap_snapshot(cap->pcap));
+}
+
+/*
+ * Return a {http://ruby-doc.org/core-1.9.3/Struct.html Struct} which represents packet statistics. This struct has following members. 
+ *  recv
+ *    number of received packets
+ *  drop
+ *    number of dropped packets
+ *
+ * @return [Struct] stats struct
+ */
+
+static VALUE
+capture_stats(self)
+     VALUE self;
+{
+    struct capture_object *cap;
+    struct pcap_stat stat;
+    VALUE v_stat;
+
+    DEBUG_PRINT("capture_stats");
+    GetCapture(self, cap);
+
+    if (pcap_stats(cap->pcap, &stat) == -1)
+        return Qnil;
+
+    v_stat = rb_funcall(cPcapStat, rb_intern("new"), 3,
+			// UINT2NUM(stat.ps_recv),
+                        // UINT2NUM(stat.ps_drop),
+                        // UINT2NUM(stat.ps_ifdrop));
+			ID2SYM(rb_intern("recv")),
+			ID2SYM(rb_intern("drop")),
+			ID2SYM(rb_intern("ifdrop")));
+
+
+    return v_stat;
+}
+
+/*
+ * Inject buf as a packet. 
+ *
+ * @param [String] buf buf as a packet
+ * @return [nil]
+ * @raise [PcapError] pcap_inject failure
+ * @raise [PcapError] pcap_inject did not write buffer size enough for the specified
+ */
+static VALUE
+capture_inject(self, v_buf)
+   VALUE self;
+   VALUE v_buf;
+{
+    struct capture_object *cap;
+    const void *buf;
+    size_t bufsiz;
+    int r;
+
+    DEBUG_PRINT("capture_inject");
+    GetCapture(self, cap);
+
+    Check_Type(v_buf, T_STRING);
+    buf = (void *)RSTRING_PTR(v_buf);
+    bufsiz = RSTRING_LEN(v_buf);
+
+    r = pcap_inject(cap->pcap, buf, bufsiz);
+    if (0 > r) {
+        rb_raise(ePcapError, "pcap_inject failure: %s", pcap_geterr(cap->pcap));
+    }
+    if (bufsiz != r) {
+        rb_raise(ePcapError, "pcap_inject expected to write %d but actually wrote %d", bufsiz, r);
+    }
+    return Qnil;
+}
+
+/*
+ * Dumper object
+ */
+
+struct dumper_object {
+    pcap_dumper_t *pcap_dumper;
+    int dl_type;
+    bpf_u_int32 snaplen;
+};
+
+/* close Dumper.  */
+static void
+closed_dumper()
+{
+    rb_raise(rb_eRuntimeError, "dumper is already closed");
+}
+
+#define GetDumper(obj, dumper) {\
+    Data_Get_Struct(obj, struct dumper_object, dumper);\
+    if (dumper->pcap_dumper == NULL) closed_dumper();\
+}
+
+/* called from GC */
+static void
+free_dumper(dumper)
+     struct dumper_object *dumper;
+{
+    DEBUG_PRINT("free_dumper");
+    if (dumper->pcap_dumper != NULL) {
+        DEBUG_PRINT("closing dumper");
+        pcap_dump_close(dumper->pcap_dumper);
+        dumper->pcap_dumper = NULL;
+    }
+    free(dumper);
+}
+
+/*
+ * Return a Dumper to dump packets captured by capture to filename. 
+ * 
+ * @param [Capture] capture Capture object
+ * @param [String] filename dump filename
+ * @return [Dumper] Dumper Object 
+ * @raise [PcapError] pcap_dump_open failure
+ */
+static VALUE
+dumper_open(class, v_cap, v_fname)
+     VALUE class;
+     VALUE v_cap;
+     VALUE v_fname;
+{
+    struct dumper_object *dumper;
+    struct capture_object *cap;
+    pcap_dumper_t *pcap_dumper;
+    VALUE self;
+
+    DEBUG_PRINT("dumper_open");
+
+    CheckClass(v_cap, cCapture);
+    GetCapture(v_cap, cap);
+    SafeStringValue(v_fname);
+
+    pcap_dumper = pcap_dump_open(cap->pcap, RSTRING_PTR(v_fname));
+    if (pcap_dumper == NULL) {
+        rb_raise(ePcapError, "dumper_open: %s", pcap_geterr(cap->pcap));
+    }
+
+    self = Data_Make_Struct(class, struct dumper_object, 0,
+                            free_dumper, dumper);
+    dumper->pcap_dumper = pcap_dumper;
+    dumper->dl_type = cap->dl_type;
+    dumper->snaplen = pcap_snapshot(cap->pcap);
+
+    return self;
+}
+
+static VALUE
+dumper_close(self)
+     VALUE self;
+{
+    struct dumper_object *dumper;
+
+    DEBUG_PRINT("dumper_close");
+    GetDumper(self, dumper);
+
+    pcap_dump_close(dumper->pcap_dumper);
+    dumper->pcap_dumper = NULL;
+    return Qnil;
+}
+
+/* Dump packet to this Dumper. packet must be a packet captured by {Capture} specified when opening this Dumper. 
+ * 
+ * @param [Packet] packet dump packet
+ * @return [nil]
+ * @raise [ArgError] data-link type mismatch
+ * @raise [ArgError] too large caplen
+ */
+static VALUE
+dumper_dump(self, v_pkt)
+     VALUE self;
+     VALUE v_pkt;
+{
+    struct dumper_object *dumper;
+    struct packet_object *pkt;
+
+    DEBUG_PRINT("dumper_dump");
+    GetDumper(self, dumper);
+
+    CheckClass(v_pkt, cPacket);
+    GetPacket(v_pkt, pkt);
+    if (pkt->hdr.dl_type != dumper->dl_type)
+        rb_raise(rb_eArgError, "Cannot dump this packet: data-link type mismatch");
+    if (pkt->hdr.pkthdr.caplen > dumper->snaplen)
+        rb_raise(rb_eArgError, "Cannot dump this packet: too large caplen");
+
+    pcap_dump((u_char *)dumper->pcap_dumper, &pkt->hdr.pkthdr, pkt->data);
+    return Qnil;
+}
+
+/*
+ * Dump buf to this Dumper as a packet. 
+ *
+ * @param [String] buf dump buf
+ * @return [nil]
+ */
+static VALUE
+dumper_dump_raw(self, v_buf)
+    VALUE self;
+    VALUE v_buf;
+{
+    struct dumper_object *dumper;
+    const u_char *buf;
+    struct pcap_pkthdr pkt_hdr;
+
+    DEBUG_PRINT("dumper_dump_raw");
+    GetDumper(self, dumper);
+
+    Check_Type(v_buf, T_STRING);
+    buf = (void *)RSTRING_PTR(v_buf);
+
+    gettimeofday(&(pkt_hdr.ts), NULL);
+    pkt_hdr.caplen = dumper->snaplen;
+    pkt_hdr.len = RSTRING_LEN(v_buf);
+
+    pcap_dump((u_char *)dumper->pcap_dumper, &pkt_hdr, buf);
+    return Qnil;
+}
+
+/*
+ * Filter object
+ */
+
+/* called from GC */
+static void
+mark_filter(filter)
+     struct filter_object *filter;
+{
+    rb_gc_mark(filter->param);
+    rb_gc_mark(filter->optimize);
+    rb_gc_mark(filter->netmask);
+}
+
+static void
+free_filter(filter)
+     struct filter_object *filter;
+{
+    free(filter->expr);
+    free(filter);
+    /*
+     * This cause memory leak because filter->program hold some memory.
+     * We overlook it because libpcap does not implement pcap_freecode().
+     */
+}
+
+/*
+ * Create a new Filter object. expr is a filter string. capture is a {Capture} object. optimize controls optimization of resulting code. netmask specifies the netmask of the local net.
+ *
+ * Created Filter can be applied to packets captured via capture.
+ * If {http://www.tcpdump.org/ libpcap-0.5 or later} used, one of following values can be specified instead of capture:
+ *
+ *  [snaplen, datalink]
+ *      an array containing required parameters
+ *  omitted (or nil)
+ *      Ethernet default ([68, {DLT_EN10MB}]) 
+ */
+static VALUE
+filter_new(argc, argv, class)
+     int argc;
+     VALUE *argv;
+     VALUE class;
+{
+    VALUE self, v_expr, v_optimize, v_capture, v_netmask;
+    struct filter_object *filter;
+    struct capture_object *capture;
+    pcap_t *pcap;
+    char *expr;
+    int n, optimize, snaplen, linktype;
+    bpf_u_int32 netmask;
+
+    n = rb_scan_args(argc, argv, "13", &v_expr, &v_capture,
+                     &v_optimize, &v_netmask);
+    /* filter expression */
+    Check_Type(v_expr, T_STRING);
+    expr = StringValuePtr(v_expr);
+    /* capture object */
+    if (IsKindOf(v_capture, cCapture)) {
+        CheckClass(v_capture, cCapture);
+        GetCapture(v_capture, capture);
+        pcap = capture->pcap;
+    } else if (NIL_P(v_capture)) {
+        /* assume most common case */
+        snaplen  = DEFAULT_SNAPLEN;
+        linktype = DEFAULT_DATALINK;
+        pcap = 0;
+    } else {
+        snaplen  = NUM2INT(rb_funcall(v_capture, rb_intern("[]"), 1, INT2FIX(0)));
+        linktype = NUM2INT(rb_funcall(v_capture, rb_intern("[]"), 1, INT2FIX(1)));
+        pcap = 0;
+    }
+    /* optimize flag */
+    optimize = 1;
+    if (n >= 3) {
+        optimize = RTEST(v_optimize);
+    }
+    /* netmask */
+    netmask = 0;
+    if (n >= 4) {
+        bpf_u_int32 mask = NUM2UINT(v_netmask);
+        netmask = htonl(mask);
+    }
+
+    filter = (struct filter_object *)xmalloc(sizeof(struct filter_object));
+    if (pcap) {
+        if (pcap_compile(pcap, &filter->program, expr, optimize, netmask) < 0)
+            rb_raise(ePcapError, "%s", pcap_geterr(pcap));
+        filter->datalink = pcap_datalink(pcap);
+        filter->snaplen  = pcap_snapshot(pcap);
+    } else {
+#ifdef HAVE_PCAP_COMPILE_NOPCAP
+        if (pcap_compile_nopcap(snaplen, linktype, &filter->program, expr, optimize, netmask) < 0)
+            /* libpcap-0.5 provides no error report for pcap_compile_nopcap */
+            rb_raise(ePcapError, "pcap_compile_nopcap error");
+        filter->datalink = linktype;
+        filter->snaplen  = snaplen;
+#else
+        rb_raise(rb_eArgError, "pcap_compile_nopcap needs libpcap-0.5 or later");
+#endif
+    }
+    self = Data_Wrap_Struct(class, mark_filter, free_filter, filter);
+    filter->expr        = strdup(expr);
+    filter->param       = v_capture;
+    filter->optimize    = optimize ? Qtrue : Qfalse;
+    filter->netmask     = INT2NUM(ntohl(netmask));
+
+    return self;
+}
+
+/* Return true if packet matches this filter. */
+VALUE
+filter_match(self, v_pkt)
+    VALUE self, v_pkt;
+{
+    struct filter_object *filter;
+    struct packet_object *pkt;
+    struct pcap_pkthdr *h;
+
+    GetFilter(self, filter);
+    CheckClass(v_pkt, cPacket);
+    GetPacket(v_pkt, pkt);
+    h = &pkt->hdr.pkthdr;
+
+    if (filter->datalink != pkt->hdr.dl_type)
+        rb_raise(rb_eRuntimeError, "Incompatible datalink type");
+    if (filter->snaplen < h->caplen)
+        rb_raise(rb_eRuntimeError, "Incompatible snaplen");
+
+    if (bpf_filter(filter->program.bf_insns, pkt->data, h->len, h->caplen))
+        return Qtrue;
+    else
+        return Qfalse;
+}
+
+/* Returns the orginal string from which the filter is constructed. */
+static VALUE
+filter_source(self)
+    VALUE self;
+{
+    struct filter_object *filter;
+
+    GetFilter(self, filter);
+    return rb_str_new2(filter->expr);
+}
+
+static VALUE
+new_filter(expr, param, optimize, netmask)
+    char *expr;
+    VALUE param, optimize, netmask;
+{
+    return rb_funcall(cFilter,
+                      rb_intern("new"), 4,
+                      rb_str_new2(expr), param, optimize, netmask);
+}
+
+/* Return a Filter which represents "self or other". */
+static VALUE
+filter_or(self, other)
+    VALUE self, other;
+{
+    struct filter_object *filter, *filter2;
+    char *expr;
+
+    CheckClass(other, cFilter);
+    GetFilter(self, filter);
+    GetFilter(other, filter2);
+
+    expr = ALLOCA_N(char, strlen(filter->expr) + strlen(filter2->expr) + 16);
+    sprintf(expr, "( %s ) or ( %s )", filter->expr, filter2->expr);
+    return new_filter(expr, filter->param, filter->optimize, filter->netmask);
+}
+
+/* Return a Filter which represents "self and other". */
+static VALUE
+filter_and(self, other)
+    VALUE self, other;
+{
+    struct filter_object *filter, *filter2;
+    char *expr;
+
+    CheckClass(other, cFilter);
+    GetFilter(self, filter);
+    GetFilter(other, filter2);
+
+    expr = ALLOCA_N(char, strlen(filter->expr) + strlen(filter2->expr) + 16);
+    sprintf(expr, "( %s ) and ( %s )", filter->expr, filter2->expr);
+    return new_filter(expr, filter->param, filter->optimize, filter->netmask);
+}
+
+/* Return a Filter which represents "not self". */
+static VALUE
+filter_not(self)
+    VALUE self;
+{
+    struct filter_object *filter;
+    char *expr;
+
+    GetFilter(self, filter);
+    expr = ALLOCA_N(char, strlen(filter->expr) + 16);
+    sprintf(expr, "not ( %s )", filter->expr);
+    return new_filter(expr, filter->param, filter->optimize, filter->netmask);
+}
+
+/*
+ * Class definition
+ */
+
+void
+Init_pcap(void)
+{
+    DEBUG_PRINT("Init_pcap");
+
+    /* define module Pcap */
+    /* Pcap defines general methods and constants related to pcap. */
+    mPcap = rb_define_module("Pcap");
+    rb_define_module_function(mPcap, "lookupdev", pcap_s_lookupdev, 0);
+    rb_define_module_function(mPcap, "findalldevs", pcap_s_findalldevs, 0);
+    rb_define_module_function(mPcap, "lookupnet", pcap_s_lookupnet, 1);
+    rb_global_variable(&rbpcap_convert);
+    rb_define_singleton_method(mPcap, "convert?", pcap_s_convert, 0);
+    rb_define_singleton_method(mPcap, "convert=", pcap_s_convert_set, 1);
+    rb_define_const(mPcap, "DLT_NULL",   INT2NUM(DLT_NULL));
+    rb_define_const(mPcap, "DLT_EN10MB", INT2NUM(DLT_EN10MB));
+    rb_define_const(mPcap, "DLT_EN3MB", INT2NUM(DLT_EN3MB));
+    rb_define_const(mPcap, "DLT_AX25", INT2NUM(DLT_AX25));
+    rb_define_const(mPcap, "DLT_PRONET", INT2NUM(DLT_PRONET));
+    rb_define_const(mPcap, "DLT_CHAOS", INT2NUM(DLT_CHAOS));
+    rb_define_const(mPcap, "DLT_IEEE802", INT2NUM(DLT_IEEE802));
+    rb_define_const(mPcap, "DLT_ARCNET", INT2NUM(DLT_ARCNET));
+    rb_define_const(mPcap, "DLT_SLIP", INT2NUM(DLT_SLIP));
+    rb_define_const(mPcap, "DLT_PPP", INT2NUM(DLT_PPP));
+    rb_define_const(mPcap, "DLT_FDDI", INT2NUM(DLT_FDDI));
+    rb_define_const(mPcap, "DLT_ATM_RFC1483", INT2NUM(DLT_ATM_RFC1483));
+#ifdef DLT_RAW
+    rb_define_const(mPcap, "DLT_RAW", INT2NUM(DLT_RAW));
+    rb_define_const(mPcap, "DLT_SLIP_BSDOS", INT2NUM(DLT_SLIP_BSDOS));
+    rb_define_const(mPcap, "DLT_PPP_BSDOS", INT2NUM(DLT_PPP_BSDOS));
+#endif
+
+    /* define class Capture */
+    /* Packet Capture Object */
+    cCapture = rb_define_class_under(mPcap, "Capture", rb_cObject);
+    rb_include_module(cCapture, rb_mEnumerable);
+    rb_define_singleton_method(cCapture, "open_live", capture_open_live, -1);
+    rb_define_singleton_method(cCapture, "open_offline", capture_open_offline, 1);
+    rb_define_singleton_method(cCapture, "open_dead", capture_open_dead, -1);
+    rb_define_method(cCapture, "close", capture_close, 0);
+    rb_define_method(cCapture, "dispatch", capture_dispatch, -1);
+    rb_define_method(cCapture, "loop", capture_loop, -1);
+    rb_define_method(cCapture, "each_packet", capture_loop, -1);
+    rb_define_method(cCapture, "each", capture_loop, -1);
+    rb_define_method(cCapture, "fh", capture_fh, -1);
+    rb_define_method(cCapture, "setfilter", capture_setfilter, -1);
+    rb_define_method(cCapture, "datalink", capture_datalink, 0);
+    rb_define_method(cCapture, "snapshot", capture_snapshot, 0);
+    rb_define_method(cCapture, "snaplen", capture_snapshot, 0);
+    rb_define_method(cCapture, "stats", capture_stats, 0);
+    rb_define_method(cCapture, "inject", capture_inject, 1);
+
+    /* define class Dumper */
+    /* Class to dump packets to tcpdump-format file. Generated file can be read with tcpdump and {Capture.open_offline}.*/
+    cDumper = rb_define_class_under(mPcap, "Dumper", rb_cObject);
+    rb_define_singleton_method(cDumper, "open", dumper_open, 2);
+    rb_define_method(cDumper, "close", dumper_close, 0);
+    rb_define_method(cDumper, "dump", dumper_dump, 1);
+    rb_define_method(cDumper, "dump_raw", dumper_dump_raw, 1);
+
+    /* define class Filter */
+    /* Filter determines whether a packet satisfies specified condition. Actually Filter is wrapper for bpf_program. For details of filter expression, see tcpdump(1).  */
+    cFilter = rb_define_class_under(mPcap, "Filter", rb_cObject);
+    rb_define_singleton_method(cFilter, "new", filter_new, -1);
+    rb_define_singleton_method(cFilter, "compile", filter_new, -1);
+    rb_define_method(cFilter, "=~", filter_match, 1);
+    rb_define_method(cFilter, "===", filter_match, 1);
+    rb_define_method(cFilter, "source", filter_source, 0);
+    rb_define_method(cFilter, "|", filter_or, 1);
+    rb_define_method(cFilter, "&", filter_and, 1);
+    rb_define_method(cFilter, "~@", filter_not, 0);
+    /*rb_define_method(cFilter, "&", filter_and, 1);*/
+
+    /* define class PcapStat */
+    cPcapStat = rb_struct_define(NULL, "recv", "drop", "ifdrop", NULL);
+    rb_define_const(mPcap, "Stat", cPcapStat);
+
+    /* define exception classes */
+    /* Exception about pcap. */
+    ePcapError       = rb_define_class_under(mPcap, "PcapError", rb_eStandardError);
+    /* Requested packet information is not available because necessary data is truncated out of capture buffer. */
+    eTruncatedPacket = rb_define_class_under(mPcap, "TruncatedPacket", ePcapError);
+
+    Init_packet();
+    rb_f_require(Qnil, rb_str_new2("pcap_misc"));
+}

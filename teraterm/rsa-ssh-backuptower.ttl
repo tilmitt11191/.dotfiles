@@ -1,0 +1,27 @@
+;============================================ 
+; Filename    : 
+; Description : SSH Auto login 
+; Author      : 
+; Created     : 
+; modified    : 
+;============================================ 
+;; ユーザ名／パスワード設定 
+HOSTADDR = '192.168.24.24' 
+USERNAME = 'ffffe'
+KEY_FILE = 'F:\Dropbox\pc\workingtower\home\.ssh\id_rsa' 
+;============================================ 
+;; ①パスワード取得 
+;;getpassword PASSFILE USERNAME PASSWORD
+ 
+;; ②コマンド組立て 
+COMMAND = HOSTADDR
+strconcat COMMAND ':22 /ssh /2 /auth=publickey /user=' 
+strconcat COMMAND USERNAME 
+strconcat COMMAND ' /keyfile=' 
+strconcat COMMAND KEY_FILE
+ 
+;; ③サーバへ接続 
+connect COMMAND
+ 
+;; ④マクロ終了 
+end

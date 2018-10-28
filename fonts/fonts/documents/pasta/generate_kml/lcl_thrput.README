@@ -1,0 +1,55 @@
+/***　***　***
+　　README
+***　***　***/
+
+
+***　***　***
+　　概要
+***　***　***
+ pacpデータをもとに、地域ごとの通信品質を算出する
+	- TCPパケットが対象
+	- 地域の割り出しは、GeoIPライブラリを利用する(http://www.maxmind.com/en/geolocation_landing)
+	- 算出結果は、[IPアドレス, 都道府県名, 市町村名, 経度, 緯度, スループット, 総パケット数, 総バイト数]のフォーマットの
+	  CSVファイル(geo_thrpt.csv)に保存
+
+
+***　***　***
+　　準備
+***　***　***
+ geoipのインストール
+	# gem install geoip
+
+	( # apt-get install geoip-bin )
+
+ inifileのインストール
+	# gem install inifile
+
+ GeoIPデータベースファイルは、MAXMIND社HP(http://dev.maxmind.com/geoip/geolite)からダウンロードし展開後
+ 以下へ配置する。
+ 	# /usr/share/GeoIP/GeoLiteCity.dat
+ を使用
+
+ apt-getでインストールしている場合は、
+ 	#geoiplookup <IPADDR>で
+ でgeoipコマンドも使える
+
+***　***　***
+ 　使用方法
+***　***　***
+ 実行権限のあるlcl_thrput.rbの引数に、pcapファイルを指定する(複数pcapファイル指定可)
+
+ # ./lcl_thrput.rb sample.pcap
+
+ 中間ファイル および ログファイルは、tmp_logディレクトリ内に出力される。
+ 今は、デバッグ用にとりあえず残しておく
+
+***　***　***
+　　注意
+***　***　***
+ ローカルIPなど、GeoIPが解決できないIPアドレスを含んでいるとエラーになる。
+
+ 必要がない限り、下記ディレクトリ、ファイル構成は変更しないこと
+
+
+
+

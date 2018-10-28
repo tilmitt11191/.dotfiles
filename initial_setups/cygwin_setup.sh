@@ -2,6 +2,20 @@
 
 #git,which,wget,ca-certificates,gnupg,(openssl-perl)
 
+#apt-cyg
+
+: <<'#__CO__'
+gcc-g++
+make
+w32api-headers
+git
+
+git clone https://github.com/juho-p/fatty.git
+cd fatty
+make
+cp src/fatty.exe /bin
+#__CO__
+
 : <<'#__CO__'
 mkdir ~/.ssh
 (/home/tilmi/.ssh/id_rsa): /cygdrive/c/Users/tilmi/home/.ssh/id_rsa

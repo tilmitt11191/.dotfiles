@@ -1,0 +1,3089 @@
+## OS
+:os_list:
+  Android:
+    :name : android
+  Mac OS:
+    :name : macos
+  Macintosh:
+    :name : macos
+  OS X:
+    :name : macos
+  IEMobile:
+    :name : windowsmobile
+  Windows:
+    :name : windows
+  PlayStation:
+    :name : gameconsole
+  PS3Community:
+    :name : gameconsole
+  PS4Community:
+    :name : gameconsole
+  Nintendo:
+    :name : gameconsole
+  WiiU:
+    :name : gameconsole
+
+## List of Smart Device Spec From User Agent
+:smart_device_info_tables:
+ A100:
+  :maker              : Acer
+  :model_name         : Iconia Tab A100
+  :carrier            :  
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ IS12F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS ES IS12F
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW11F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Z ISW11F
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW13F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Z ISW13F
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ FJL21:
+  :maker              : Fujitsu
+  :model_name         : ARROWS ef FJL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS04:
+  :maker              : Fujitsu
+  :model_name         : REGZA Phone IS04
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS11T:
+  :maker              : Fujitsu
+  :model_name         : REGZA Phone IS11T
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ HTL21:
+  :maker              : HTC
+  :model_name         : J butterfly HTL21
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ ISW11HT :
+  :maker              : HTC
+  :model_name         : EVO WiMAX ISW11HT
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW12HT:
+  :maker              : HTC
+  :model_name         : EVO 3D ISW12HT
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW13HT:
+  :maker              : HTC
+  :model_name         : J ISW13HT
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ HTX21:
+  :maker              : HTC
+  :model_name         : INFOBAR A02
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ ISW11K:
+  :maker              : Kyocera
+  :model_name         : DIGNO ISW11K
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ KYL21:
+  :maker              : Kyocera
+  :model_name         : DIGNO S KYL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS11LG:
+  :maker              : LG
+  :model_name         : Optimus X IS11LG
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ LGL21:
+  :maker              : LG
+  :model_name         : Optimus G LGL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS12M:
+  :maker              : MOTOROLA
+  :model_name         : RAZR IS12M
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW11M:
+  :maker              : MOTOROLA
+  :model_name         : PHOTON ISW11M
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS11CA:
+  :maker              : NEC-Casio
+  :model_name         : G'zOne IS11CA
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS11N:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS BR IS11N
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ CAL21:
+  :maker              : NEC-Casio
+  :model_name         : G'zOne TYPE-L CAL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS06:
+  :maker              : Pantech&Curitel
+  :model_name         : SIRIUS alpha IS06
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS11PT:
+  :maker              : Pantech&Curitel
+  :model_name         : MIRACH IS11PT
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ PTL21:
+  :maker              : Pantech&Curitel
+  :model_name         : VEGA PTL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ ISW11SC:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S II WiMAX ISW11SC
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SCL21:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S III Progre SCL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ INFOBAR C01:
+  :maker              : SHARP
+  :model_name         : INFOBAR C01
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS05:
+  :maker              : SHARP
+  :model_name         : IS05
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS11SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE IS11SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS12SH:
+  :maker              : SHARP
+  :model_name         : QUOS PHONE IS12SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS13SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE IS13SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS14SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE IS14SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS15SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SL IS15SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS17SH :
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE CL IS17SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ ISW16SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SERIE ISW16SH
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHL21:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SERIE SHL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHT21:
+  :maker              : SHARP
+  :model_name         : AQUOS PAD SHT21
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ URBANO PROGRESSO:
+  :maker              : SHARP
+  :model_name         : URBANO PROGRESSO
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ IS03:
+  :maker              : SHARP
+  :model_name         : au IS03
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ INFOBAR A01:
+  :maker              : SHARP
+  :model_name         : INFOBAR A01
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SonyEricssonIS11S :
+  :maker              : SONY
+  :model_name         : Xperia acro IS11S
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SonyEricssonIS12S:
+  :maker              : SONY
+  :model_name         : Xperia acro HD IS12S
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SOL21:
+  :maker              : SONY
+  :model_name         : Xperia VL SOL21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ AT500:
+  :maker              : Toshiba
+  :model_name         : REGZA Tablet AT500
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ HTL22:
+  :maker              : HTC
+  :model_name         : HTC J One HTL22
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SOL22:
+  :maker              : SONY
+  :model_name         : Xperia UL SOL22
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ KDDI-HT01:
+  :maker              : HTC
+  :model_name         : E30HT
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ KYY21:
+  :maker              : Kyocera
+  :model_name         : KYY21
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHL22:
+  :maker              : SHARP
+  :model_name         : SHL22
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ IS01:
+  :maker              : SHARP
+  :model_name         : IS01
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ KDDI-TS02:
+  :maker              : TOSHIBA
+  :model_name         : E31T
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ KDDI-TS01:
+  :maker              : TOSHIBA
+  :model_name         : IS02
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ IS12T:
+  :maker              : TOSHIBA
+  :model_name         : IS12T
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ ETBW11AA :
+  :maker              : ASUS
+  :model_name         : ETBW11AA 
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ MZ604:
+  :maker              : MOTOROLA
+  :model_name         : TBi11M
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ SMT-i9100 :
+  :maker              : SAMSUNG
+  :model_name         : SMT-i9100 
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ KYL22:
+  :maker              : Kyocera
+  :model_name         : DIGNO M KYL22 au
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ LGL22:
+  :maker              : LG
+  :model_name         : isai LGL22 au
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SCL22:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Note3 SCL22 au
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHL23:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SERIE SHL23 au
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SOL23:
+  :maker              : SONY
+  :model_name         : Xperia Z1 SOL23 au
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ FJL22:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Z FJL22 au
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ KYY22:
+  :maker              : Kyocera
+  :model_name         : URBANO L02
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ LGL23:
+  :maker              : LG
+  :model_name         : G Flex LGL23
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHL24:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SERIE mini SHL24
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHT22:
+  :maker              : SHARP
+  :model_name         : AQUOS PAD SHT22
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SOL24:
+  :maker              : SONY
+  :model_name         : Xperia(TM) Z Ultra SOL24
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ FJT21:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Tab　FJT21
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ LGL24:
+  :maker              : LG
+  :model_name         : isai FL
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SOL25:
+  :maker              : SONY
+  :model_name         : Xperia ZL2 SOL25
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SCL23:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S5 SCL23
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHL25:
+  :maker              : SHARP
+  :model_name         : AQUOS SERIE SHL25
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ KYY23:
+  :maker              : Kyocera
+  :model_name         : URBANO L03
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SOT21:
+  :maker              : SONY
+  :model_name         : Xperia Z2 Tablet SOT21
+  :carrier            : au
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ AST21:
+  :maker              : ASUS
+  :model_name         : ASUS MeMO Pad 8 AST21
+  :carrier            : au
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ KYY22:
+  :maker              : Kyocera
+  :model_name         : TORQUE G01
+  :carrier            : au
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-01D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Tab LTE F-01D
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-02E:
+  :maker              : Fujitsu
+  :model_name         : ARROWS X F-02E
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-03D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Kiss F-03D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ F-05D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS X LTE F-05D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-08D:
+  :maker              : Fujitsu
+  :model_name         : Disney Mobile on docomo F-08D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-11D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Me F-11D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-12C:
+  :maker              : Fujitsu
+  :model_name         : F-12C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ T-01D:
+  :maker              : Fujitsu
+  :model_name         : REGZA Phone T-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ T-02D:
+  :maker              : Fujitsu
+  :model_name         : REGZA Phone T-02D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ T-01C:
+  :maker              : Fujitsu
+  :model_name         : REGZA Phone T-01C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ F-07D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS myu F-07D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-04E:
+  :maker              : Fujitsu
+  :model_name         : ARROWS V F-04E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-10D:
+  :maker              : Fujitsu
+  :model_name         : ARROWS X F-10D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ dtab01:
+  :maker              : Huawei
+  :model_name         : dtab
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ L-01D:
+  :maker              : LG
+  :model_name         : Optimus LTE L-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - LTE
+
+ L-01E:
+  :maker              : LG
+  :model_name         : Optimus G L-01E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-02D:
+  :maker              : LG
+  :model_name         : PRADA phone by LG L-02D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ L-06C:
+  :maker              : LG
+  :model_name         : Optimus Pad L-06C
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ L-04C:
+  :maker              : LG
+  :model_name         : Optimus chat L-04C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ L-05D:
+  :maker              : LG
+  :model_name         : Optimus it L-05D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ N-01D:
+  :maker              : NEC-Casio
+  :model_name         : N-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ N-08D:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS TAB UL N-08D
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-07D:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS X N-07D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-04C:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS N-04C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ N-05D:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS ES N-05D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ N-06C:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS WP N-06C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-01D:
+  :maker              : Panasonic
+  :model_name         : P-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-02D:
+  :maker              : Panasonic
+  :model_name         : LUMIX Phone P-02D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-02E:
+  :maker              : Panasonic
+  :model_name         : ELUGA X P-02E
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ P-05D:
+  :maker              : Panasonic
+  :model_name         : Disney Mobile on docomo P-05D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-06D:
+  :maker              : Panasonic
+  :model_name         : ELUGA V P-06D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-07C:
+  :maker              : Panasonic
+  :model_name         : P-07C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-07D:
+  :maker              : Panasonic
+  :model_name         : ELUGA power P-07D
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ P-04D:
+  :maker              : Panasonic
+  :model_name         : P-04D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SC-01D:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Tab 10.1 LTE
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-02C:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S II SC-02C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SC-02D:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Tab 7.0 Plus
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SC-02E:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Note II SC-02E
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-03D:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S II LTE SC-03D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-03E:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S III alpha SC-03E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ Galaxy Nexus:
+  :maker              : SAMSUNG
+  :model_name         : Galaxy Nexus
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-06D:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S III SC-06D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SHW-M340K:
+  :maker              : SAMSUNG
+  :model_name         : Galaxy M Style SHW-M340K
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SC-05D:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Note
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-02B:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S SC-02B
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SC-01C:
+  :maker              : SAMSUNG
+  :model_name         : Galaxy Tab
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-01D:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SH-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-01E:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE si SH-01E_Vivienne Westwood
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-02D:
+  :maker              : SHARP
+  :model_name         : SH-02D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-02E:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ZETA SH-02E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-03C:
+  :maker              : SHARP
+  :model_name         : LYNX 3D(SH-03C)
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-04D:
+  :maker              : SHARP
+  :model_name         : Q-pot.Phone SH-04D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-04E:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE EX SH-04E 
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-12C:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE(SH-12C)
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-13C:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE f (SH-13C)
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-09D:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ZETA SH-09D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-06D:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE SH-06D _ NERV
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-10D:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE sv SH-10D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SonySO-04D:
+  :maker              : SONY
+  :model_name         : Xperia GX SO-04D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SonySO-05D:
+  :maker              : SONY
+  :model_name         : Xperia SX SO-05D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-02E:
+  :maker              : SONY
+  :model_name         : Xperia Z SO-02E
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-01E:
+  :maker              : SONY
+  :model_name         : Xperia AX SO-01E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-03E:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Kiss F-03E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-05E:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Tab F-05E
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-09D:
+  :maker              : Fujitsu
+  :model_name         : F-09D ANTEPRIMA
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ F-12D:
+  :maker              : Fujitsu
+  :model_name         : Rakuraku Smartphone F-12D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ F-06E:
+  :maker              : Fujitsu
+  :model_name         : ARROWS NX F-06E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ HT-03A:
+  :maker              : HTC
+  :model_name         : HT-03A
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ HW-01E:
+  :maker              : Huawei
+  :model_name         : Ascend HW-01E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ HW-03E:
+  :maker              : Huawei
+  :model_name         : Ascend D2 HW-03E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-02E:
+  :maker              : LG
+  :model_name         : Optimus LIFE L-02E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-04E:
+  :maker              : LG
+  :model_name         : Optimus G Pro L-04E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-05E:
+  :maker              : LG
+  :model_name         : Optimus it L-05E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-06D:
+  :maker              : LG
+  :model_name         : Optimus Vu L-06D
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-07C:
+  :maker              : LG
+  :model_name         : Optimus bright L-07C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ N-02E:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS U N-02E _ N-02E ONE PIECE
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-04D:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS LTE N-04D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-05E:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS W N-05E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-06D:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS TAB N-06D
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-03E:
+  :maker              : NEC-Casio
+  :model_name         : Disney Mobile on docomo N-03E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-04E:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS X N-04E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ N-06E:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS X N-06E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ P-08D:
+  :maker              : Panasonic
+  :model_name         : ELUGA Live P-08D
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ P-03E:
+  :maker              : Panasonic
+  :model_name         : ELUGA P P-03E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ BlackBerry 9000:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 9000
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ BlackBerry 9900:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 9900
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ BlackBerry 9780:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 9780
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ BlackBerry 9700:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 9300
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ BlackBerry 9300:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 9700
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ SC-01E:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Tab 7.7 Plus SC-01E
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-04E:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S4 SC-04E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-01B:
+  :maker              : SAMSUNG
+  :model_name         : SC-01B
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ SH-05E:
+  :maker              : SHARP
+  :model_name         : Smartphone for Junior SH-05E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-06E:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ZETA SH-06E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-10B:
+  :maker              : SHARP
+  :model_name         : LYNX SH-10B
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-07D:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE st SH-07D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SH-07E:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE si SH-07E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-02C:
+  :maker              : SONY
+  :model_name         : Xperia acro SO-02C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SO-03C:
+  :maker              : SONY
+  :model_name         : Xperia ray SO-03C
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SO-04E:
+  :maker              : SONY
+  :model_name         : XperiaA SO-04E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SonyEricssonSO-01D:
+  :maker              : SONY
+  :model_name         : Xperia PLAY SO-01D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SO-03E:
+  :maker              : SONY
+  :model_name         : Xperia Tablet Z SO-03E
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SonyEricssonSO-02D:
+  :maker              : SONY
+  :model_name         : Xperia NX SO-02D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SonyEricssonSO-03D:
+  :maker              : SONY
+  :model_name         : Xperia acro HD SO-03D
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SonyEricssonSO-01B:
+  :maker              : SONY
+  :model_name         : Xperia SO-01B
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ T-01A:
+  :maker              : TOSHIBA
+  :model_name         : T-01A
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ T-01B:
+  :maker              : TOSHIBA
+  :model_name         : dynapocket T-01B
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ FOMAF1100:
+  :maker              : Fujitsu
+  :model_name         : F1100
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ HT01A:
+  :maker              : HTC
+  :model_name         : HT-01A
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ HT02A:
+  :maker              : HTC
+  :model_name         : HT-02A
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ FOMAHT1100:
+  :maker              : HTC
+  :model_name         : HT1100
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ Windows CE; PPC; 240x320; DCM06:
+  :maker              : HTC
+  :model_name         : HTC Z
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ BlackBerry 8707:
+  :maker              : Research In Motion Limited
+  :model_name         : BlackBerry Bold 8707h
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : BlackBerry
+  :cellular_network   : 
+                        - 3G
+
+ Sony Tablet S :
+  :maker              : SONY
+  :model_name         : Sony Tablet S 
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ Sony Tablet P:
+  :maker              : SONY
+  :model_name         : Sony Tablet P
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ F-08E:
+  :maker              : Fujitsu
+  :model_name         : F-08E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-09E:
+  :maker              : Fujitsu
+  :model_name         : F-09E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-08E:
+  :maker              : SHARP
+  :model_name         : SH-08E
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-01F:
+  :maker              : LG
+  :model_name         : G2 L-01F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-01F:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Note 3 SC-01F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-02F:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY Note 3 SC-02F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-03F:
+  :maker              : SHARP
+  :model_name         : smartphone for junior 2 SH-03F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-01FDQ:
+  :maker              : SHARP
+  :model_name         : SH-01F DRAGON QUEST docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-01F:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ZETA SH-01F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-02F:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ZETA SH-02F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-02F:
+  :maker              : SONY
+  :model_name         : Xperia Z1 f SO-02F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-01F:
+  :maker              : SONY
+  :model_name         : Xperia Z1 SO-01F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-01F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS NX F-01F docomo
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-02f:
+  :maker              : Fujitsu
+  :model_name         : ARROWS Tab F-02F
+  :carrier            : docomo
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ F-03F:
+  :maker              : Fujitsu
+  :model_name         : Disney Mobile on docomo F-03F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-04F:
+  :maker              : Fujitsu
+  :model_name         : business smart phone F-04F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-07E:
+  :maker              : Fujitsu
+  :model_name         : Disney Mobile on docomo F-07E
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ L-06D:
+  :maker              : LG
+  :model_name         : L-06D _ JOJO docomo
+  :carrier            : docomo
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SC-04F:
+  :maker              : SAMSUNG
+  :model_name         : GALAXY S5 SC-04F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-03F:
+  :maker              : SONY
+  :model_name         : Xperia Z2 SO-03F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SO-04F:
+  :maker              : SONY
+  :model_name         : Xperia A2 SO-04F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SH-04F:
+  :maker              : SHARP
+  :model_name         : AQUOS ZETA SH-04F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-05F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS NX F-05F
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ F-06F:
+  :maker              : Fujitsu
+  :model_name         : easy smartphone3
+  :carrier            : docomo
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ GS03:
+  :maker              : Huawei
+  :model_name         : GS03
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ S31HW:
+  :maker              : Huawei
+  :model_name         : S31HW
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ GS01:
+  :maker              : DELL
+  :model_name         : Dell Streak Pro GS01
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ S31HT:
+  :maker              : HTC
+  :model_name         : HTC Aria  S31HT
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ GL07S:
+  :maker              : Huawei
+  :model_name         : STREAM X GL07S
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ S41HW:
+  :maker              : Huawei
+  :model_name         : Pocket WiFi S II S41HW
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ GS02:
+  :maker              : Huawei
+  :model_name         : GS02
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ S42HW:
+  :maker              : Huawei
+  :model_name         : smart bar S42HW
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SonyEricssonS51SE:
+  :maker              : SONY
+  :model_name         : Sony Ericsson mini S51SE
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ S11HT:
+  :maker              : HTC
+  :model_name         : S11HT
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ S12HT:
+  :maker              : HTC
+  :model_name         : S12HT
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ S22HT:
+  :maker              : HTC
+  :model_name         : S22HT
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ A01HW:
+  :maker              : Huawei
+  :model_name         : A01HW
+  :carrier            : emobile
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ EM01F:
+  :maker              : Fujitsu
+  :model_name         : EM01F
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ EM01L:
+  :maker              : Google
+  :model_name         : Nexus 5 EM01L 32GB e-mobile
+  :carrier            : emobile
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ Nexus 7:
+  :maker              : ASUS
+  :model_name         : Nexus 7
+  :carrier            : Google
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ Nexus S:
+  :maker              : SAMSUNG
+  :model_name         : Nexus S
+  :carrier            : Google
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ Nexus 10:
+  :maker              : SAMSUNG
+  :model_name         : Nexus 10
+  :carrier            : Google
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ 001DL:
+  :maker              : DELL
+  :model_name         : Streak SoftBank 001DL
+  :carrier            : Softbank
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 101F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS A 101F
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 001HT:
+  :maker              : HTC
+  :model_name         : Desire HD 001HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 201K:
+  :maker              : Kyocera
+  :model_name         : HONEY BEE SoftBank 201K
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 101P:
+  :maker              : Panasonic
+  :model_name         : LUMIX Phone 101P
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM009SH:
+  :maker              : SHARP
+  :model_name         : Disney Mobile DM009SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM010SH:
+  :maker              : SHARP
+  :model_name         : Disney Mobile DM010SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM101SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE THE HYBRID 101SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM006SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE 006SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM009SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE THE PREMIUM 009SH　_ Y
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM107SH:
+  :maker              : SHARP
+  :model_name         : PANTONE 5 107SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 003Z:
+  :maker              : ZTE
+  :model_name         : Libero 003Z
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 009Z:
+  :maker              : ZTE
+  :model_name         : STAR 7 009Z
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 101DL:
+  :maker              : DELL
+  :model_name         : DELL Streak Pro 101DL
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 201F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS A 201F
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 202F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS A 202F
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ S21HT:
+  :maker              : HTC
+  :model_name         : Touch Diamond S21HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ 007HW:
+  :maker              : Huawei
+  :model_name         : Vision 007HW
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 101K:
+  :maker              : Kyocera
+  :model_name         : HONEY BEE SoftBank 101K
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ WX06K:
+  :maker              : Kyocera
+  :model_name         : HONEY BEE WX06K
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 202K:
+  :maker              : Kyocera
+  :model_name         : DIGNO R 202K
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 201M:
+  :maker              : MOTOROLA
+  :model_name         : MOTOROLA RAZR M 201M
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 101N:
+  :maker              : NEC-Casio
+  :model_name         : MEDIAS CH 101N
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 102P:
+  :maker              : Panasonic
+  :model_name         : SoftBank 102P
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 003P:
+  :maker              : Panasonic
+  :model_name         : Sweety 003P
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ X01SC:
+  :maker              : SAMSUNG
+  :model_name         : X01SC
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ DM011SH:
+  :maker              : SHARP
+  :model_name         : DM011SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM007SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE THE HYBRID 007SH _ K _J
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM102SH2:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE 102SHII
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM200SH:
+  :maker              : SHARP
+  :model_name         : PANTONE 6 200SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM005SH:
+  :maker              : SHARP
+  :model_name         : GALAPAGOS 005SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM012SH:
+  :maker              : SHARP
+  :model_name         : DM012SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM102SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE 102SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM104SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE 104SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM013SH:
+  :maker              : SHARP
+  :model_name         : DM013SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM106SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx 106SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM103SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE 103SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM014SH:
+  :maker              : SHARP
+  :model_name         : DM014SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM203SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx 203SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM204SH:
+  :maker              : SHARP
+  :model_name         : SoftBank 204SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ SBM205SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ss 205SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM206SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx 206SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM003SH:
+  :maker              : SHARP
+  :model_name         : GALAPAGOS 003SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ X02T:
+  :maker              : TOSHIBA
+  :model_name         : dynapocket X02T
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ 008Z:
+  :maker              : ZTE
+  :model_name         : 008Z
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ X01HT:
+  :maker              : HTC
+  :model_name         : X01HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ X02HT:
+  :maker              : HTC
+  :model_name         : X02HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ X03HT:
+  :maker              : HTC
+  :model_name         : X03HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ X04HT:
+  :maker              : HTC
+  :model_name         : X04HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ X05HT:
+  :maker              : HTC
+  :model_name         : X05HT
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ X01T:
+  :maker              : TOSHIBA
+  :model_name         : X01T
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ 302SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx 302SH SoftBank
+  :carrier            : Softbank
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 303SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx mini 303SH SoftBank
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 301F:
+  :maker              : Fujitsu
+  :model_name         : ARROWS A 301F SoftBank
+  :carrier            : Softbank
+  :display_class      : Phablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ DM016SH:
+  :maker              : SHARP
+  :model_name         : DM016SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 204HW:
+  :maker              : Huawei
+  :model_name         : 204HW SoftBank safety
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ DM015K:
+  :maker              : Kyocera
+  :model_name         : DM015K Disney mobile
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 201K:
+  :maker              : Kyocera
+  :model_name         : HONEY BEE 201K
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM200SH:
+  :maker              : SHARP
+  :model_name         : PANTONE 6 200SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ SBM107SHB:
+  :maker              : SHARP
+  :model_name         : SBM107SHB BOSS phone
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ 304SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE Xx 304SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 304SH:
+  :maker              : SHARP
+  :model_name         : AQUOS Xx 304SH
+  :carrier            : Softbank
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ 201HW:
+  :maker              : Huawei
+  :model_name         : STREAM 201HW
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ WX04K:
+  :maker              : Kyocera
+  :model_name         : DIFNO DUAL
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ WX10K:
+  :maker              : Kyocera
+  :model_name         : DIGNO DUAL 2 WX10K
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ WX04SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE es WX04SH WILLCOM
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ WS027SH:
+  :maker              : SHARP
+  :model_name         : HYBRID W-ZERO3
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : 
+                        - 3G
+
+ WS020SH:
+  :maker              : SHARP
+  :model_name         : WILLCOM 03
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : []
+
+ WS011SH:
+  :maker              : SHARP
+  :model_name         : Advanced _ W-ZERO3[es]
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : []
+
+ WS007SH:
+  :maker              : SHARP
+  :model_name         : W-ZERO3[es]
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : []
+
+ WS004SH:
+  :maker              : SHARP
+  :model_name         : W-ZERO3(WS004SH)
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : []
+
+ WS003SH:
+  :maker              : SHARP
+  :model_name         : W-ZERO3(WS003SH)
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Windows
+  :cellular_network   : []
+
+ WX05SH:
+  :maker              : SHARP
+  :model_name         : AQUOS PHONE ef WX05SH WILLCOM
+  :carrier            : WILLCOM
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ A200:
+  :maker              : Acer
+  :model_name         : Iconia Tab A200-S08G
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ A500:
+  :maker              : Acer
+  :model_name         : Iconia Tab A500-10S16
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ A700:
+  :maker              : Acer
+  :model_name         : Iconia Tab A700-S16S
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ iPad:
+  :maker              : Apple
+  :model_name         : iPad
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : iOS
+  :cellular_network   : []
+
+ iPhone:
+  :maker              : Apple
+  :model_name         : iPhone
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : iOS
+  :cellular_network   : 
+                        - 3G
+                        - LTE
+
+ HTC J Z321e:
+  :maker              : HTC
+  :model_name         : J Z321e
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ A1_07:
+  :maker              : Lenovo
+  :model_name         : IdeaPad A1
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ Milestone:
+  :maker              : MOTOROLA
+  :model_name         : MileStone
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ GT01:
+  :maker              : Huawei
+  :model_name         : GT01
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ A01SH:
+  :maker              : SHARP
+  :model_name         : GALAPAGOS A01SH
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ KFJWI:
+  :maker              : Amazon
+  :model_name         : Kindle Fire HD 8.9
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ KFOT:
+  :maker              : Amazon
+  :model_name         : Kindle Fire
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ KFTT:
+  :maker              : Amazon
+  :model_name         : Kindle FireHD
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ KHTML:
+  :maker              : Amazon
+  :model_name         : Kindle Paperwhite 3G
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : 
+                        - 3G
+
+ Windows NT:
+  :maker              : Microsoft
+  :model_name         : Surface Pro _ RT
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Windows
+  :cellular_network   : []
+
+ TF101:
+  :maker              : ASUS
+  :model_name         : TF101
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ TF201:
+  :maker              : ASUS
+  :model_name         : TF201
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ TF300T:
+  :maker              : ASUS
+  :model_name         : TF300T
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ SGP312:
+  :maker              : SONY
+  :model_name         : SGP312
+  :carrier            : ~
+  :display_class      : Tablet
+  :os                 : Android
+  :cellular_network   : []
+
+ CP-D02:
+  :maker              : COVIA networks
+  :model_name         : FleaPhone CP-D02 SIM free
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - LTE
+
+ CP-F03a:
+  :maker              : COVIA networks
+  :model_name         : FleaPhone CP-F03a SIM free
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : 
+                        - LTE
+
+ freetel:
+  :maker              : PlusOne
+  :model_name         : Freetel SIM free
+  :carrier            : ~
+  :display_class      : Smartphone
+  :os                 : Android
+  :cellular_network   : []
+
