@@ -275,7 +275,8 @@ fi
 
 ##etc
 if [ $HOST = "PC" ];then
-	$HOME/bin/fatty
+	#$HOME/bin/fatty
+	:
 fi
 if [ $HOST = "www2271.sakura.ne.jp" ];then
 	echo "for node.js at sakura"

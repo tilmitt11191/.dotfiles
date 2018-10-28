@@ -17,6 +17,7 @@ endif
 
 ""color
 syntax enable
+
 if hostname() == "ubuntu128" || hostname() == "ubuntuMain2"
 	colorscheme twilight
 	highlight Normal ctermbg=none
