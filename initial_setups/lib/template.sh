@@ -7,4 +7,5 @@ cd `dirname $0`
 
 
 cd $INITIALDIR
+echo true
 exit 0
