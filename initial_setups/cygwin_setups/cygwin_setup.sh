@@ -38,7 +38,7 @@ rm ~/.zcompdump*
 
 #apt-cyg install vim --no-check-certificate
 #apt-cyg install tmux --no-check-certificate
-DOTFILES=(minttyrc vimrc tmux.conf)
+DOTFILES=(minttyrc vimrc vim tmux.conf)
 read -p "overwrite ${DOTFILES[*]}. Press Enter(or [n/N]): " n
 case "$n" in [nN]*) echo "abort." ; exit ;; *) ;; esac
 for dotfile in ${DOTFILES[@]}; do
