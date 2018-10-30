@@ -9,7 +9,7 @@ cd `dirname $0`
 sudo apt update -y && sudo apt dist-upgrade -y 2>&1 >/dev/null
 echo "####sudo apt -y install gdebi"
 sudo apt -y --fix-broken install
-sudo apt -y install gdebi
+sudo apt -y install gdebi 'fonts-takao-*'
 
 echo "####sudo gdebi change-topbar-colon-extend_8_all.deb"
 wget -T 5 -t 3 --waitretry=5 https://sicklylife.jp/ubuntu/1804/change-topbar-colon-extend_8_all.deb -P $HOME/tmp/change-topbar-colon-extend_8_all.deb
