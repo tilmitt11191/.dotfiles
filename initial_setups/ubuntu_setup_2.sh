@@ -5,7 +5,6 @@ INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
 
-: <<'#__CO__'
 echo -n "Swap caps for ctrl? [Y/n] default[Y]:"
 read ANSWER
 case $ANSWER in
@@ -48,11 +47,9 @@ case $ANSWER in
 	"B" | "b" | "backup" | "Backup" | "BACKUP" ) DELETE_DEFAULT_DOTFILES="backup";;
 	* ) DELETE_DEFAULT_DOTFILES="true";;
 esac
-#__CO__
 
 
-: <<'#__CO__'
-LANG=C xdg-user-dirs-gtk-update
+##LANG=C xdg-user-dirs-gtk-update
 LANG=C xdg-user-dirs-update --force
 CREATE_DIR="$HOME/tmp"
 [ ! -d $CREATE_DIR ] && echo "create_directory $CREATE_DIR" && mkdir -p $CREATE_DIR
@@ -66,7 +63,6 @@ $ENABLE_HIBERNATE && bash lib/enable_hibernate.sh && echo "s####ucceed to enable
 ($ADD_JAPANESE_PACKAGES && bash lib/add_japanese_packages.sh && echo "####succeed to add japanese packages") || (echo "####failed to add japanese packages; exit1" ; exit 1)
 ($INSTALL_APT_PACKAGES && bash lib/install_apt_packages.sh && echo "####succeed to install apt packages") || (echo "####failed to install apt packages; exit 1"; exit 1)
 ([ DELETE_DEFAULT_DOTFILES != "false" ] && bash lib/create_symbolic_link.sh $DELETE_DEFAULT_DOTFILES && echo "####succeed to create symbolic links to dotfiles") || (echo "####failed to create symbolic links of dotfiles; exit 1"; exit 1)
-#__CO__
 
 
 
