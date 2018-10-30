@@ -5,8 +5,12 @@ INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
 
-sudo apt -y install git
+dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install git
 
+[ -d $HOME/.fonts/other_fonts/Powerline_fonts_for_prezto ]\
+	&& echo "exist"
+
+exit 0
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
