@@ -4,11 +4,18 @@ echo "####`basename $0` start."
 INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
-package=git
-dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install $package
-package=zsh
-dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install $package
-
+PACKAGES=(git zsh)
+for package in ${PACKAGES[@]}; do
+	dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null
+	if [ $? -ne 0 ];then
+		m="$package not installed. sudo apt-get install -y $package."
+		echo "$m"
+		sudo apt install -y $package
+	else
+		m="$package already installed."
+		echo "$m"
+	fi
+done
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
