@@ -12,6 +12,8 @@ for file in ${DOTFILES[@]}; do
 	ln -s ~/.dotfiles/$file ~/.$file
 done
 
+##apply fonts
+fc-cache -fv
 
 cd $INITIALDIR
 exit 0
