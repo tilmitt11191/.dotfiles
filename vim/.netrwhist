@@ -1,8 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =3
 let g:netrw_dirhist_1='/Users/tilmitt11/bin'
-<<<<<<< HEAD
-let g:netrw_dirhist_2='/home/takashiozu/.dotfiles/vim'
-=======
 let g:netrw_dirhist_2='/etc/mysql/mysql.conf.d'
->>>>>>> 85093cd995152ca788b3f5ad738f2ed5807f0060
+let g:netrw_dirhist_3='/home/alladmin/data/kakaku/input'
