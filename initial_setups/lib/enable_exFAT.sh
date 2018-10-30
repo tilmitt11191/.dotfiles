@@ -5,6 +5,7 @@ INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
 
+sudo apt -y install exfat-fuse exfat-utils
 
 
 cd $INITIALDIR
