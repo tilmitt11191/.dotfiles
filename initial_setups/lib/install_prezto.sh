@@ -4,8 +4,11 @@ echo "####`basename $0` start."
 INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
+package=git
+dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install $package
+package=zsh
+dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install $package
 
-dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null || sudo apt -y install git
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
