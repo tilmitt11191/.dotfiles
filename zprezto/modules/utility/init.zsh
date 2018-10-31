@@ -31,6 +31,7 @@ alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
 alias mv='nocorrect mv'
 alias mysql='nocorrect mysql'
+#alias rm='nocorrect rm'
 alias rm='nocorrect rm'
 
 # Disable globbing.
