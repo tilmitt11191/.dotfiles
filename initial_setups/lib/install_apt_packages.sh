@@ -5,7 +5,7 @@ INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
 
-PACKAGES=(vim git curl autossh tmux xclip gparted exfat-fuse exfat-utils)
+PACKAGES=(zsh vim git curl autossh tmux xclip gparted exfat-fuse exfat-utils)
 for package in ${PACKAGES[@]}; do
 	dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null
 	if [ $? -ne 0 ];then

@@ -4,7 +4,7 @@ echo "####`basename $0` start."
 INITIALDIR=`sudo pwd`
 cd `dirname $0`
 
-PACKAGES=(git zsh)
+PACKAGES=(git zsh vim)
 for package in ${PACKAGES[@]}; do
 	dpkg -l $package | grep -E "^i.+[ \t]+$package" > /dev/null
 	if [ $? -ne 0 ];then
